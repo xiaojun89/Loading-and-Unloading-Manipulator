@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="gb2312"?>
+<PLC>
+  <Tags />
+  <PLC参数>
+    <D100 Text="1#运行到位" Authority="0" WriteAuthority="0" Max="0" Min="0" />
+    <D101 Text="1#回零到位" Authority="0" WriteAuthority="0" Max="0" Min="0" />
+    <D290 Text="回零限制" Authority="0" WriteAuthority="1" Max="1" Min="0" />
+  </PLC参数>
+  <报警信息>
+    <G2.1 Text="砂轮或导轮未启动，无法启动自动加工程序" DeviceType="3" DeviceMember="1" DeviceGroup="2" DeviceIndex="2" WRDeviceType="4" WRDeviceMember="1" WRDeviceGroup="2" WRDeviceIndex="2" revert="0" Type="2" />
+    <G2.2 Text="砂轮未启动，无法进行砂轮修整" DeviceType="3" DeviceMember="2" DeviceGroup="2" DeviceIndex="2" WRDeviceType="4" WRDeviceMember="2" WRDeviceGroup="2" WRDeviceIndex="2" revert="0" Type="2" />
+    <G2.3 Text="润滑关或液位未到位，无法启动砂轮" DeviceType="3" DeviceMember="3" DeviceGroup="2" DeviceIndex="2" WRDeviceType="4" WRDeviceMember="3" WRDeviceGroup="2" WRDeviceIndex="2" revert="0" Type="2" />
+    <G2.4 Text="导轮未启动，无法进行导轮修整" DeviceType="3" DeviceMember="4" DeviceGroup="2" DeviceIndex="2" WRDeviceType="4" WRDeviceMember="4" WRDeviceGroup="2" WRDeviceIndex="2" revert="0" Type="2" />
+    <G21.1 Text="砂轮变频器故障" DeviceType="3" DeviceMember="1" DeviceGroup="2" DeviceIndex="21" WRDeviceType="4" WRDeviceMember="1" WRDeviceGroup="2" WRDeviceIndex="21" revert="0" Type="3" />
+  </报警信息>
+  <端口诊断>
+    <基本IO>
+      <X0.0 Text="润滑开关" DeviceType="3" DeviceMember="0" DeviceGroup="0" DeviceIndex="0" />
+      <X0.1 Text="润滑确认" DeviceType="3" DeviceMember="1" DeviceGroup="0" DeviceIndex="0" />
+      <X0.2 Text="冷却确认" DeviceType="3" DeviceMember="2" DeviceGroup="0" DeviceIndex="0" />
+      <X0.3 Text="砂轮确认" DeviceType="3" DeviceMember="3" DeviceGroup="0" DeviceIndex="0" />
+      <X0.4 Text="导轮确认" DeviceType="3" DeviceMember="4" DeviceGroup="0" DeviceIndex="0" />
+      <X0.5 Text="未定义" DeviceType="3" DeviceMember="5" DeviceGroup="0" DeviceIndex="0" />
+      <X0.6 Text="1#机械手下位" DeviceType="3" DeviceMember="6" DeviceGroup="0" DeviceIndex="0" />
+      <X0.7 Text="1#送料手前位" DeviceType="3" DeviceMember="7" DeviceGroup="0" DeviceIndex="0" />
+      <X1.0 Text="1#送料手后位" DeviceType="3" DeviceMember="0" DeviceGroup="0" DeviceIndex="1" />
+      <X1.1 Text="2#机械手上位" DeviceType="3" DeviceMember="1" DeviceGroup="0" DeviceIndex="1" />
+      <X1.2 Text="2#机械手下位" DeviceType="3" DeviceMember="2" DeviceGroup="0" DeviceIndex="1" />
+      <X1.3 Text="2#送料手前位" DeviceType="3" DeviceMember="3" DeviceGroup="0" DeviceIndex="1" />
+      <X1.4 Text="2#送料手后位" DeviceType="3" DeviceMember="4" DeviceGroup="0" DeviceIndex="1" />
+      <X1.5 Text="未定义" DeviceType="3" DeviceMember="5" DeviceGroup="0" DeviceIndex="1" />
+      <X1.6 Text="2#机械手DOG" DeviceType="3" DeviceMember="6" DeviceGroup="0" DeviceIndex="1" />
+      <X1.7 Text="面板急停" DeviceType="3" DeviceMember="7" DeviceGroup="0" DeviceIndex="1" />
+      <X2.0 Text="砂轮变频报警" DeviceType="3" DeviceMember="0" DeviceGroup="0" DeviceIndex="2" />
+      <X2.1 Text="砂轮变频速度到达" DeviceType="3" DeviceMember="1" DeviceGroup="0" DeviceIndex="2" />
+      <X2.2 Text="注油液位" DeviceType="3" DeviceMember="2" DeviceGroup="0" DeviceIndex="2" />
+      <X2.3 Text="限位常闭" DeviceType="3" DeviceMember="3" DeviceGroup="0" DeviceIndex="2" />
+      <X2.4 Text="1#机械手上位" DeviceType="3" DeviceMember="4" DeviceGroup="0" DeviceIndex="2" />
+      <X2.5 Text="未定义" DeviceType="3" DeviceMember="5" DeviceGroup="0" DeviceIndex="2" />
+      <X2.6 Text="1#机械手DOG" DeviceType="3" DeviceMember="6" DeviceGroup="0" DeviceIndex="2" />
+      <X2.7 Text="未定义" DeviceType="3" DeviceMember="7" DeviceGroup="0" DeviceIndex="2" />
+      <X3.0 Text="未定义" DeviceType="3" DeviceMember="0" DeviceGroup="0" DeviceIndex="3" />
+      <X3.1 Text="未定义" DeviceType="3" DeviceMember="1" DeviceGroup="0" DeviceIndex="3" />
+      <X3.2 Text="未定义" DeviceType="3" DeviceMember="2" DeviceGroup="0" DeviceIndex="3" />
+      <X3.3 Text="未定义" DeviceType="3" DeviceMember="3" DeviceGroup="0" DeviceIndex="3" />
+      <X3.4 Text="未定义" DeviceType="3" DeviceMember="4" DeviceGroup="0" DeviceIndex="3" />
+      <X3.5 Text="未定义" DeviceType="3" DeviceMember="5" DeviceGroup="0" DeviceIndex="3" />
+      <X3.6 Text="未定义" DeviceType="3" DeviceMember="6" DeviceGroup="0" DeviceIndex="3" />
+      <X3.7 Text="未定义" DeviceType="3" DeviceMember="7" DeviceGroup="0" DeviceIndex="3" />
+      <Y0.0 Text="砂轮" DeviceType="3" DeviceMember="0" DeviceGroup="1" DeviceIndex="0" WRDeviceType="4" WRDeviceMember="0" WRDeviceGroup="1" WRDeviceIndex="0" />
+      <Y0.1 Text="润滑" DeviceType="3" DeviceMember="1" DeviceGroup="1" DeviceIndex="0" WRDeviceType="4" WRDeviceMember="1" WRDeviceGroup="1" WRDeviceIndex="0" />
+      <Y0.2 Text="冷却" DeviceType="3" DeviceMember="2" DeviceGroup="1" DeviceIndex="0" WRDeviceType="4" WRDeviceMember="2" WRDeviceGroup="1" WRDeviceIndex="0" />
+      <Y0.3 Text="油注" DeviceType="3" DeviceMember="3" DeviceGroup="1" DeviceIndex="0" WRDeviceType="4" WRDeviceMember="3" WRDeviceGroup="1" WRDeviceIndex="0" />
+      <Y0.4 Text="导轮" DeviceType="3" DeviceMember="4" DeviceGroup="1" DeviceIndex="0" WRDeviceType="4" WRDeviceMember="4" WRDeviceGroup="1" WRDeviceIndex="0" />
+      <Y0.5 Text="1#机械手下降" DeviceType="3" DeviceMember="5" DeviceGroup="1" DeviceIndex="0" WRDeviceType="4" WRDeviceMember="5" WRDeviceGroup="1" WRDeviceIndex="0" />
+      <Y0.6 Text="2#机械手下降" DeviceType="3" DeviceMember="6" DeviceGroup="1" DeviceIndex="0" WRDeviceType="4" WRDeviceMember="6" WRDeviceGroup="1" WRDeviceIndex="0" />
+      <Y0.7 Text="1#送料手进退" DeviceType="3" DeviceMember="7" DeviceGroup="1" DeviceIndex="0" WRDeviceType="4" WRDeviceMember="7" WRDeviceGroup="1" WRDeviceIndex="0" />
+      <Y1.0 Text="2#送料手进退" DeviceType="3" DeviceMember="0" DeviceGroup="1" DeviceIndex="1" WRDeviceType="4" WRDeviceMember="0" WRDeviceGroup="1" WRDeviceIndex="1" />
+      <Y1.1 Text="1#机械手能使" DeviceType="3" DeviceMember="1" DeviceGroup="1" DeviceIndex="1" WRDeviceType="4" WRDeviceMember="1" WRDeviceGroup="1" WRDeviceIndex="1" />
+      <Y1.2 Text="2#机械手能使" DeviceType="3" DeviceMember="2" DeviceGroup="1" DeviceIndex="1" WRDeviceType="4" WRDeviceMember="2" WRDeviceGroup="1" WRDeviceIndex="1" />
+      <Y1.3 Text="砂轮电机启动（变频器）" DeviceType="3" DeviceMember="3" DeviceGroup="1" DeviceIndex="1" WRDeviceType="4" WRDeviceMember="3" WRDeviceGroup="1" WRDeviceIndex="1" />
+      <Y1.4 Text="1#驱动Pos1" DeviceType="3" DeviceMember="4" DeviceGroup="1" DeviceIndex="1" WRDeviceType="4" WRDeviceMember="4" WRDeviceGroup="1" WRDeviceIndex="1" />
+      <Y1.5 Text="1#驱动Pos2" DeviceType="3" DeviceMember="5" DeviceGroup="1" DeviceIndex="1" WRDeviceType="4" WRDeviceMember="5" WRDeviceGroup="1" WRDeviceIndex="1" />
+      <Y1.6 Text="1#驱动Start" DeviceType="3" DeviceMember="6" DeviceGroup="1" DeviceIndex="1" WRDeviceType="4" WRDeviceMember="6" WRDeviceGroup="1" WRDeviceIndex="1" />
+      <Y1.7 Text="1#驱动Stop" DeviceType="3" DeviceMember="7" DeviceGroup="1" DeviceIndex="1" WRDeviceType="4" WRDeviceMember="7" WRDeviceGroup="1" WRDeviceIndex="1" />
+      <Y2.0 Text="1#驱动回原点" DeviceType="3" DeviceMember="0" DeviceGroup="1" DeviceIndex="2" WRDeviceType="4" WRDeviceMember="0" WRDeviceGroup="1" WRDeviceIndex="2" />
+      <Y2.1 Text="2#驱动Pos1" DeviceType="3" DeviceMember="1" DeviceGroup="1" DeviceIndex="2" WRDeviceType="4" WRDeviceMember="1" WRDeviceGroup="1" WRDeviceIndex="2" />
+      <Y2.2 Text="2#驱动Pos2" DeviceType="3" DeviceMember="2" DeviceGroup="1" DeviceIndex="2" WRDeviceType="4" WRDeviceMember="2" WRDeviceGroup="1" WRDeviceIndex="2" />
+      <Y2.3 Text="2#驱动Start" DeviceType="3" DeviceMember="3" DeviceGroup="1" DeviceIndex="2" WRDeviceType="4" WRDeviceMember="3" WRDeviceGroup="1" WRDeviceIndex="2" />
+      <Y2.4 Text="2#驱动Stop" DeviceType="3" DeviceMember="4" DeviceGroup="1" DeviceIndex="2" WRDeviceType="4" WRDeviceMember="4" WRDeviceGroup="1" WRDeviceIndex="2" />
+      <Y2.5 Text="2#驱动回原点" DeviceType="3" DeviceMember="5" DeviceGroup="1" DeviceIndex="2" WRDeviceType="4" WRDeviceMember="5" WRDeviceGroup="1" WRDeviceIndex="2" />
+      <Y2.6 Text="1#驱动Origin" DeviceType="3" DeviceMember="6" DeviceGroup="1" DeviceIndex="2" WRDeviceType="4" WRDeviceMember="6" WRDeviceGroup="1" WRDeviceIndex="2" />
+      <Y2.7 Text="2#驱动Origin" DeviceType="3" DeviceMember="7" DeviceGroup="1" DeviceIndex="2" WRDeviceType="4" WRDeviceMember="7" WRDeviceGroup="1" WRDeviceIndex="2" />
+    </基本IO>
+    <操作面板I>
+      <X10.0 Text="砂轮X轴原点" DeviceType="3" DeviceMember="0" DeviceGroup="0" DeviceIndex="10" />
+      <X10.1 Text="导轮X轴原点" DeviceType="3" DeviceMember="1" DeviceGroup="0" DeviceIndex="10" />
+      <X10.2 Text="工作台原点" DeviceType="3" DeviceMember="2" DeviceGroup="0" DeviceIndex="10" />
+      <X10.3 Text="手动" DeviceType="3" DeviceMember="3" DeviceGroup="0" DeviceIndex="10" />
+      <X10.4 Text="回零" DeviceType="3" DeviceMember="4" DeviceGroup="0" DeviceIndex="10" />
+      <X10.5 Text="手轮" DeviceType="3" DeviceMember="5" DeviceGroup="0" DeviceIndex="10" />
+      <X10.6 Text="自动" DeviceType="3" DeviceMember="6" DeviceGroup="0" DeviceIndex="10" />
+      <X10.7 Text="砂轮Y轴原点" DeviceType="3" DeviceMember="7" DeviceGroup="0" DeviceIndex="10" />
+      <X11.0 Text="导轮Y轴原点" DeviceType="3" DeviceMember="0" DeviceGroup="0" DeviceIndex="11" />
+      <X11.1 Text="机械手原点" DeviceType="3" DeviceMember="1" DeviceGroup="0" DeviceIndex="11" />
+      <X11.2 Text="F0" DeviceType="3" DeviceMember="2" DeviceGroup="0" DeviceIndex="11" />
+      <X11.3 Text="F25" DeviceType="3" DeviceMember="3" DeviceGroup="0" DeviceIndex="11" />
+      <X11.4 Text="F50" DeviceType="3" DeviceMember="4" DeviceGroup="0" DeviceIndex="11" />
+      <X11.5 Text="F100" DeviceType="3" DeviceMember="5" DeviceGroup="0" DeviceIndex="11" />
+      <X11.6 Text="尺寸点建立" DeviceType="3" DeviceMember="6" DeviceGroup="0" DeviceIndex="11" />
+      <X11.7 Text="砂轮修整" DeviceType="3" DeviceMember="7" DeviceGroup="0" DeviceIndex="11" />
+      <X12.0 Text="导轮修整" DeviceType="3" DeviceMember="0" DeviceGroup="0" DeviceIndex="12" />
+      <X12.1 Text="K1" DeviceType="3" DeviceMember="1" DeviceGroup="0" DeviceIndex="12" />
+      <X12.2 Text="K2" DeviceType="3" DeviceMember="2" DeviceGroup="0" DeviceIndex="12" />
+      <X12.3 Text="1#机械手+" DeviceType="3" DeviceMember="3" DeviceGroup="0" DeviceIndex="12" />
+      <X12.4 Text="1#机械手-" DeviceType="3" DeviceMember="4" DeviceGroup="0" DeviceIndex="12" />
+      <X12.5 Text="导轮X进" DeviceType="3" DeviceMember="5" DeviceGroup="0" DeviceIndex="12" />
+      <X12.6 Text="工作台进" DeviceType="3" DeviceMember="6" DeviceGroup="0" DeviceIndex="12" />
+      <X12.7 Text="砂轮Y进" DeviceType="3" DeviceMember="7" DeviceGroup="0" DeviceIndex="12" />
+      <X13.0 Text="单段" DeviceType="3" DeviceMember="0" DeviceGroup="0" DeviceIndex="13" />
+      <X13.1 Text="空运行" DeviceType="3" DeviceMember="1" DeviceGroup="0" DeviceIndex="13" />
+      <X13.2 Text="润滑启动" DeviceType="3" DeviceMember="2" DeviceGroup="0" DeviceIndex="13" />
+      <X13.3 Text="润滑停止" DeviceType="3" DeviceMember="3" DeviceGroup="0" DeviceIndex="13" />
+      <X13.4 Text="砂轮X退" DeviceType="3" DeviceMember="4" DeviceGroup="0" DeviceIndex="13" />
+      <X13.5 Text="快进" DeviceType="3" DeviceMember="5" DeviceGroup="0" DeviceIndex="13" />
+      <X13.6 Text="砂轮X进" DeviceType="3" DeviceMember="6" DeviceGroup="0" DeviceIndex="13" />
+      <X13.7 Text="冷却启动" DeviceType="3" DeviceMember="7" DeviceGroup="0" DeviceIndex="13" />
+      <X14.0 Text="冷却停止" DeviceType="3" DeviceMember="0" DeviceGroup="0" DeviceIndex="14" />
+      <X14.1 Text="导轮启动" DeviceType="3" DeviceMember="1" DeviceGroup="0" DeviceIndex="14" />
+      <X14.2 Text="导轮停止" DeviceType="3" DeviceMember="2" DeviceGroup="0" DeviceIndex="14" />
+      <X14.3 Text="砂轮Y退" DeviceType="3" DeviceMember="3" DeviceGroup="0" DeviceIndex="14" />
+      <X14.4 Text="工作台退" DeviceType="3" DeviceMember="4" DeviceGroup="0" DeviceIndex="14" />
+      <X14.5 Text="导轮X退" DeviceType="3" DeviceMember="5" DeviceGroup="0" DeviceIndex="14" />
+      <X14.6 Text="2#机械手+" DeviceType="3" DeviceMember="6" DeviceGroup="0" DeviceIndex="14" />
+      <X14.7 Text="空磨关闭" DeviceType="3" DeviceMember="7" DeviceGroup="0" DeviceIndex="14" />
+      <X15.0 Text="砂轮启动" DeviceType="3" DeviceMember="0" DeviceGroup="0" DeviceIndex="15" />
+      <X15.1 Text="砂轮停止" DeviceType="3" DeviceMember="1" DeviceGroup="0" DeviceIndex="15" />
+      <X15.2 Text="2#机械手-" DeviceType="3" DeviceMember="2" DeviceGroup="0" DeviceIndex="15" />
+      <X15.3 Text="导轮Y进" DeviceType="3" DeviceMember="3" DeviceGroup="0" DeviceIndex="15" />
+      <X15.4 Text="导轮Y退" DeviceType="3" DeviceMember="4" DeviceGroup="0" DeviceIndex="15" />
+      <X15.5 Text="空磨开启" DeviceType="3" DeviceMember="5" DeviceGroup="0" DeviceIndex="15" />
+      <X15.6 Text="未定义" DeviceType="3" DeviceMember="6" DeviceGroup="0" DeviceIndex="15" />
+      <X15.7 Text="未定义" DeviceType="3" DeviceMember="7" DeviceGroup="0" DeviceIndex="15" />
+      <X16.0 Text="程序启动" DeviceType="3" DeviceMember="0" DeviceGroup="0" DeviceIndex="16" />
+      <X16.1 Text="程序停止" DeviceType="3" DeviceMember="1" DeviceGroup="0" DeviceIndex="16" />
+      <X16.2 Text="未定义" DeviceType="3" DeviceMember="2" DeviceGroup="0" DeviceIndex="16" />
+      <X16.3 Text="未定义" DeviceType="3" DeviceMember="3" DeviceGroup="0" DeviceIndex="16" />
+      <X16.4 Text="未定义" DeviceType="3" DeviceMember="4" DeviceGroup="0" DeviceIndex="16" />
+      <X16.5 Text="未定义" DeviceType="3" DeviceMember="5" DeviceGroup="0" DeviceIndex="16" />
+      <X16.6 Text="未定义" DeviceType="3" DeviceMember="6" DeviceGroup="0" DeviceIndex="16" />
+      <X16.7 Text="未定义" DeviceType="3" DeviceMember="7" DeviceGroup="0" DeviceIndex="16" />
+      <X17.0 Text="进给倍率1" DeviceType="3" DeviceMember="0" DeviceGroup="0" DeviceIndex="17" />
+      <X17.1 Text="进给倍率2" DeviceType="3" DeviceMember="1" DeviceGroup="0" DeviceIndex="17" />
+      <X17.2 Text="进给倍率3" DeviceType="3" DeviceMember="2" DeviceGroup="0" DeviceIndex="17" />
+      <X17.3 Text="进给倍率4" DeviceType="3" DeviceMember="3" DeviceGroup="0" DeviceIndex="17" />
+      <X17.4 Text="未定义" DeviceType="3" DeviceMember="4" DeviceGroup="0" DeviceIndex="17" />
+      <X17.5 Text="未定义" DeviceType="3" DeviceMember="5" DeviceGroup="0" DeviceIndex="17" />
+      <X17.6 Text="未定义" DeviceType="3" DeviceMember="6" DeviceGroup="0" DeviceIndex="17" />
+      <X17.7 Text="未定义" DeviceType="3" DeviceMember="7" DeviceGroup="0" DeviceIndex="17" />
+    </操作面板I>
+    <操作面板O>
+      <Y10.0 Text="砂轮X轴原点" DeviceType="3" DeviceMember="0" DeviceGroup="1" DeviceIndex="10" WRDeviceType="4" WRDeviceMember="0" WRDeviceGroup="1" WRDeviceIndex="10" />
+      <Y10.1 Text="导轮X轴原点" DeviceType="3" DeviceMember="1" DeviceGroup="1" DeviceIndex="10" WRDeviceType="4" WRDeviceMember="1" WRDeviceGroup="1" WRDeviceIndex="10" />
+      <Y10.2 Text="工作台原点" DeviceType="3" DeviceMember="2" DeviceGroup="1" DeviceIndex="10" WRDeviceType="4" WRDeviceMember="2" WRDeviceGroup="1" WRDeviceIndex="10" />
+      <Y10.3 Text="手动" DeviceType="3" DeviceMember="3" DeviceGroup="1" DeviceIndex="10" WRDeviceType="4" WRDeviceMember="3" WRDeviceGroup="1" WRDeviceIndex="10" />
+      <Y10.4 Text="回零" DeviceType="3" DeviceMember="4" DeviceGroup="1" DeviceIndex="10" WRDeviceType="4" WRDeviceMember="4" WRDeviceGroup="1" WRDeviceIndex="10" />
+      <Y10.5 Text="手轮" DeviceType="3" DeviceMember="5" DeviceGroup="1" DeviceIndex="10" WRDeviceType="4" WRDeviceMember="5" WRDeviceGroup="1" WRDeviceIndex="10" />
+      <Y10.6 Text="自动" DeviceType="3" DeviceMember="6" DeviceGroup="1" DeviceIndex="10" WRDeviceType="4" WRDeviceMember="6" WRDeviceGroup="1" WRDeviceIndex="10" />
+      <Y10.7 Text="砂轮Y轴原点" DeviceType="3" DeviceMember="7" DeviceGroup="1" DeviceIndex="10" WRDeviceType="4" WRDeviceMember="7" WRDeviceGroup="1" WRDeviceIndex="10" />
+      <Y11.0 Text="导轮Y轴原点" DeviceType="3" DeviceMember="0" DeviceGroup="1" DeviceIndex="11" WRDeviceType="4" WRDeviceMember="0" WRDeviceGroup="1" WRDeviceIndex="11" />
+      <Y11.1 Text="机械手原点" DeviceType="3" DeviceMember="1" DeviceGroup="1" DeviceIndex="11" WRDeviceType="4" WRDeviceMember="1" WRDeviceGroup="1" WRDeviceIndex="11" />
+      <Y11.2 Text="F0" DeviceType="3" DeviceMember="2" DeviceGroup="1" DeviceIndex="11" WRDeviceType="4" WRDeviceMember="2" WRDeviceGroup="1" WRDeviceIndex="11" />
+      <Y11.3 Text="F25" DeviceType="3" DeviceMember="3" DeviceGroup="1" DeviceIndex="11" WRDeviceType="4" WRDeviceMember="3" WRDeviceGroup="1" WRDeviceIndex="11" />
+      <Y11.4 Text="F50" DeviceType="3" DeviceMember="4" DeviceGroup="1" DeviceIndex="11" WRDeviceType="4" WRDeviceMember="4" WRDeviceGroup="1" WRDeviceIndex="11" />
+      <Y11.5 Text="F100" DeviceType="3" DeviceMember="5" DeviceGroup="1" DeviceIndex="11" WRDeviceType="4" WRDeviceMember="5" WRDeviceGroup="1" WRDeviceIndex="11" />
+      <Y11.6 Text="尺寸点建立" DeviceType="3" DeviceMember="6" DeviceGroup="1" DeviceIndex="11" WRDeviceType="4" WRDeviceMember="6" WRDeviceGroup="1" WRDeviceIndex="11" />
+      <Y11.7 Text="砂轮修整" DeviceType="3" DeviceMember="7" DeviceGroup="1" DeviceIndex="11" WRDeviceType="4" WRDeviceMember="7" WRDeviceGroup="1" WRDeviceIndex="11" />
+      <Y12.0 Text="导轮修整" DeviceType="3" DeviceMember="0" DeviceGroup="1" DeviceIndex="12" WRDeviceType="4" WRDeviceMember="0" WRDeviceGroup="1" WRDeviceIndex="12" />
+      <Y12.1 Text="K1" DeviceType="3" DeviceMember="1" DeviceGroup="1" DeviceIndex="12" WRDeviceType="4" WRDeviceMember="1" WRDeviceGroup="1" WRDeviceIndex="12" />
+      <Y12.2 Text="K2" DeviceType="3" DeviceMember="2" DeviceGroup="1" DeviceIndex="12" WRDeviceType="4" WRDeviceMember="2" WRDeviceGroup="1" WRDeviceIndex="12" />
+      <Y12.3 Text="1#机械手+" DeviceType="3" DeviceMember="3" DeviceGroup="1" DeviceIndex="12" WRDeviceType="4" WRDeviceMember="3" WRDeviceGroup="1" WRDeviceIndex="12" />
+      <Y12.4 Text="1#机械手-" DeviceType="3" DeviceMember="4" DeviceGroup="1" DeviceIndex="12" WRDeviceType="4" WRDeviceMember="4" WRDeviceGroup="1" WRDeviceIndex="12" />
+      <Y12.5 Text="导轮X进" DeviceType="3" DeviceMember="5" DeviceGroup="1" DeviceIndex="12" WRDeviceType="4" WRDeviceMember="5" WRDeviceGroup="1" WRDeviceIndex="12" />
+      <Y12.6 Text="工作台进" DeviceType="3" DeviceMember="6" DeviceGroup="1" DeviceIndex="12" WRDeviceType="4" WRDeviceMember="6" WRDeviceGroup="1" WRDeviceIndex="12" />
+      <Y12.7 Text="砂轮Y进" DeviceType="3" DeviceMember="7" DeviceGroup="1" DeviceIndex="12" WRDeviceType="4" WRDeviceMember="7" WRDeviceGroup="1" WRDeviceIndex="12" />
+      <Y13.0 Text="单段" DeviceType="3" DeviceMember="0" DeviceGroup="1" DeviceIndex="13" WRDeviceType="4" WRDeviceMember="0" WRDeviceGroup="1" WRDeviceIndex="13" />
+      <Y13.1 Text="空运行" DeviceType="3" DeviceMember="1" DeviceGroup="1" DeviceIndex="13" WRDeviceType="4" WRDeviceMember="1" WRDeviceGroup="1" WRDeviceIndex="13" />
+      <Y13.2 Text="润滑启动" DeviceType="3" DeviceMember="2" DeviceGroup="1" DeviceIndex="13" WRDeviceType="4" WRDeviceMember="2" WRDeviceGroup="1" WRDeviceIndex="13" />
+      <Y13.3 Text="润滑停止" DeviceType="3" DeviceMember="3" DeviceGroup="1" DeviceIndex="13" WRDeviceType="4" WRDeviceMember="3" WRDeviceGroup="1" WRDeviceIndex="13" />
+      <Y13.4 Text="砂轮X退" DeviceType="3" DeviceMember="4" DeviceGroup="1" DeviceIndex="13" WRDeviceType="4" WRDeviceMember="4" WRDeviceGroup="1" WRDeviceIndex="13" />
+      <Y13.5 Text="快进" DeviceType="3" DeviceMember="5" DeviceGroup="1" DeviceIndex="13" WRDeviceType="4" WRDeviceMember="5" WRDeviceGroup="1" WRDeviceIndex="13" />
+      <Y13.6 Text="砂轮X进" DeviceType="3" DeviceMember="6" DeviceGroup="1" DeviceIndex="13" WRDeviceType="4" WRDeviceMember="6" WRDeviceGroup="1" WRDeviceIndex="13" />
+      <Y13.7 Text="冷却启动" DeviceType="3" DeviceMember="7" DeviceGroup="1" DeviceIndex="13" WRDeviceType="4" WRDeviceMember="7" WRDeviceGroup="1" WRDeviceIndex="13" />
+      <Y14.0 Text="冷却停止" DeviceType="3" DeviceMember="0" DeviceGroup="1" DeviceIndex="14" WRDeviceType="4" WRDeviceMember="0" WRDeviceGroup="1" WRDeviceIndex="14" />
+      <Y14.1 Text="导轮启动" DeviceType="3" DeviceMember="1" DeviceGroup="1" DeviceIndex="14" WRDeviceType="4" WRDeviceMember="1" WRDeviceGroup="1" WRDeviceIndex="14" />
+      <Y14.2 Text="导轮停止" DeviceType="3" DeviceMember="2" DeviceGroup="1" DeviceIndex="14" WRDeviceType="4" WRDeviceMember="2" WRDeviceGroup="1" WRDeviceIndex="14" />
+      <Y14.3 Text="砂轮Y退" DeviceType="3" DeviceMember="3" DeviceGroup="1" DeviceIndex="14" WRDeviceType="4" WRDeviceMember="3" WRDeviceGroup="1" WRDeviceIndex="14" />
+      <Y14.4 Text="工作台退" DeviceType="3" DeviceMember="4" DeviceGroup="1" DeviceIndex="14" WRDeviceType="4" WRDeviceMember="4" WRDeviceGroup="1" WRDeviceIndex="14" />
+      <Y14.5 Text="导轮X退" DeviceType="3" DeviceMember="5" DeviceGroup="1" DeviceIndex="14" WRDeviceType="4" WRDeviceMember="5" WRDeviceGroup="1" WRDeviceIndex="14" />
+      <Y14.6 Text="2#机械手+" DeviceType="3" DeviceMember="6" DeviceGroup="1" DeviceIndex="14" WRDeviceType="4" WRDeviceMember="6" WRDeviceGroup="1" WRDeviceIndex="14" />
+      <Y14.7 Text="空磨关闭" DeviceType="3" DeviceMember="7" DeviceGroup="1" DeviceIndex="14" WRDeviceType="4" WRDeviceMember="7" WRDeviceGroup="1" WRDeviceIndex="14" />
+      <Y15.0 Text="砂轮启动" DeviceType="3" DeviceMember="0" DeviceGroup="1" DeviceIndex="15" WRDeviceType="4" WRDeviceMember="0" WRDeviceGroup="1" WRDeviceIndex="15" />
+      <Y15.1 Text="砂轮停止" DeviceType="3" DeviceMember="1" DeviceGroup="1" DeviceIndex="15" WRDeviceType="4" WRDeviceMember="1" WRDeviceGroup="1" WRDeviceIndex="15" />
+      <Y15.2 Text="2#机械手-" DeviceType="3" DeviceMember="2" DeviceGroup="1" DeviceIndex="15" WRDeviceType="4" WRDeviceMember="2" WRDeviceGroup="1" WRDeviceIndex="15" />
+      <Y15.3 Text="导轮Y进" DeviceType="3" DeviceMember="3" DeviceGroup="1" DeviceIndex="15" WRDeviceType="4" WRDeviceMember="3" WRDeviceGroup="1" WRDeviceIndex="15" />
+      <Y15.4 Text="导轮Y退" DeviceType="3" DeviceMember="4" DeviceGroup="1" DeviceIndex="15" WRDeviceType="4" WRDeviceMember="4" WRDeviceGroup="1" WRDeviceIndex="15" />
+      <Y15.5 Text="空磨开启" DeviceType="3" DeviceMember="5" DeviceGroup="1" DeviceIndex="15" WRDeviceType="4" WRDeviceMember="5" WRDeviceGroup="1" WRDeviceIndex="15" />
+      <Y15.6 Text="未定义" DeviceType="3" DeviceMember="6" DeviceGroup="1" DeviceIndex="15" WRDeviceType="4" WRDeviceMember="6" WRDeviceGroup="1" WRDeviceIndex="15" />
+      <Y15.7 Text="未定义" DeviceType="3" DeviceMember="7" DeviceGroup="1" DeviceIndex="15" WRDeviceType="4" WRDeviceMember="7" WRDeviceGroup="1" WRDeviceIndex="15" />
+    </操作面板O>
+  </端口诊断>
+  <注释>
+    <X0.0 Text="液位到位" />
+    <X0.1 Text="润滑确认" />
+    <X0.2 Text="冷却确认" />
+    <X0.3 Text="砂轮确认" />
+    <X0.4 Text="导轮确认" />
+    <X0.5 Text="未定义" />
+    <X0.6 Text="1#下到位" />
+    <X0.7 Text="1#送料前" />
+    <X1.0 Text="1#送料后" />
+    <X1.1 Text="2#上到位" />
+    <X1.2 Text="2#下到位" />
+    <X1.3 Text="2#送料前" />
+    <X1.4 Text="2#送料后" />
+    <X1.5 Text="未定义" />
+    <X1.6 Text="2# 原点" />
+    <X1.7 Text="面板急停" />
+    <X2.0 Text="砂变报警" />
+    <X2.1 Text="砂变速达" />
+    <X2.2 Text="注油液位" />
+    <X2.3 Text="限位常闭" />
+    <X2.4 Text="1#上到位" />
+    <X2.5 Text="未定义" />
+    <X2.6 Text="1# 原点" />
+    <X2.7 Text="未定义" />
+    <X3.0 Text="未定义" />
+    <X3.1 Text="未定义" />
+    <X3.2 Text="未定义" />
+    <X3.3 Text="未定义" />
+    <X3.4 Text="未定义" />
+    <X3.5 Text="未定义" />
+    <X3.6 Text="未定义" />
+    <X3.7 Text="未定义" />
+    <X10.0 Text="砂X原点" />
+    <X10.1 Text="导X原点" />
+    <X10.2 Text="工台原点" />
+    <X10.3 Text="手动" />
+    <X10.4 Text="回零" />
+    <X10.5 Text="手轮" />
+    <X10.6 Text="自动" />
+    <X10.7 Text="砂Y原点" />
+    <X11.0 Text="导Y原点" />
+    <X11.1 Text="机械手原点" />
+    <X11.2 Text="F0" />
+    <X11.3 Text="F25" />
+    <X11.4 Text="F50" />
+    <X11.5 Text="F100" />
+    <X11.6 Text="尺寸建立" />
+    <X11.7 Text="砂轮修整" />
+    <X12.0 Text="导轮修整" />
+    <X12.1 Text="K1" />
+    <X12.2 Text="K2" />
+    <X12.3 Text="1#机械进" />
+    <X12.4 Text="1#机械退" />
+    <X12.5 Text="导轮X进" />
+    <X12.6 Text="工作台进" />
+    <X12.7 Text="砂轮Y进" />
+    <X13.0 Text="单段" />
+    <X13.1 Text="空运行" />
+    <X13.2 Text="润滑启动" />
+    <X13.3 Text="润滑停止" />
+    <X13.4 Text="砂轮X退" />
+    <X13.5 Text="快进" />
+    <X13.6 Text="砂轮X进" />
+    <X13.7 Text="冷却启动" />
+    <X14.0 Text="冷却停止" />
+    <X14.1 Text="导轮启动" />
+    <X14.2 Text="导轮停止" />
+    <X14.3 Text="砂轮Y退" />
+    <X14.4 Text="工作台退" />
+    <X14.5 Text="导轮X退" />
+    <X14.6 Text="2#机械进" />
+    <X14.7 Text="空磨关闭" />
+    <X15.0 Text="砂轮启动" />
+    <X15.1 Text="砂轮停止" />
+    <X15.2 Text="2#机械退" />
+    <X15.3 Text="导轮Y进" />
+    <X15.4 Text="导轮Y退" />
+    <X15.5 Text="空磨开启" />
+    <X15.6 Text="未定义" />
+    <X15.7 Text="未定义" />
+    <X16.0 Text="程序启动" />
+    <X16.1 Text="程序停止" />
+    <X16.2 Text="未定义" />
+    <X16.3 Text="未定义" />
+    <X16.4 Text="未定义" />
+    <X16.5 Text="未定义" />
+    <X16.6 Text="未定义" />
+    <X16.7 Text="未定义" />
+    <X17.0 Text="进给倍1" />
+    <X17.1 Text="进给倍2" />
+    <X17.2 Text="进给倍3" />
+    <X17.3 Text="进给倍4" />
+    <X17.4 Text="未定义" />
+    <X17.5 Text="未定义" />
+    <X17.6 Text="未定义" />
+    <X17.7 Text="未定义" />
+    <Y0.0 Text="砂轮" />
+    <Y0.1 Text="润滑" />
+    <Y0.2 Text="冷却" />
+    <Y0.3 Text="油注" />
+    <Y0.4 Text="导轮" />
+    <Y0.5 Text="1#机械下" />
+    <Y0.6 Text="2#机械下" />
+    <Y0.7 Text="1#送料" />
+    <Y1.0 Text="2#送料" />
+    <Y1.1 Text="1#能使" />
+    <Y1.2 Text="2#能使" />
+    <Y1.3 Text="砂轮启动" />
+    <Y1.4 Text="1# Pos1" />
+    <Y1.5 Text="1# Pos2" />
+    <Y1.6 Text="1#Start" />
+    <Y1.7 Text="1#Stop" />
+    <Y2.0 Text="1#回原点" />
+    <Y2.1 Text="2#Pos1" />
+    <Y2.2 Text="2#Pos2" />
+    <Y2.3 Text="2#Start" />
+    <Y2.4 Text="2#Stop" />
+    <Y2.5 Text="2#回原点" />
+    <Y2.6 Text="1#Origin" />
+    <Y2.7 Text="2#Origin" />
+    <Y10.0 Text="砂X原点" />
+    <Y10.1 Text="导X原点" />
+    <Y10.2 Text="工台原点" />
+    <Y10.3 Text="手动" />
+    <Y10.4 Text="回零" />
+    <Y10.5 Text="手轮" />
+    <Y10.6 Text="自动" />
+    <Y10.7 Text="砂Y原点" />
+    <Y11.0 Text="导Y原点" />
+    <Y11.1 Text="机械手原点" />
+    <Y11.2 Text="F0" />
+    <Y11.3 Text="F25" />
+    <Y11.4 Text="F50" />
+    <Y11.5 Text="F100" />
+    <Y11.6 Text="尺寸建立" />
+    <Y11.7 Text="砂轮修整" />
+    <Y12.0 Text="导轮修整" />
+    <Y12.1 Text="K1" />
+    <Y12.2 Text="K2" />
+    <Y12.3 Text="1#机械进" />
+    <Y12.4 Text="1#机械退" />
+    <Y12.5 Text="导轮X进" />
+    <Y12.6 Text="工作台进" />
+    <Y12.7 Text="砂轮Y进" />
+    <Y13.0 Text="单段" />
+    <Y13.1 Text="空运行" />
+    <Y13.2 Text="润滑启动" />
+    <Y13.3 Text="润滑停止" />
+    <Y13.4 Text="砂轮X退" />
+    <Y13.5 Text="快进" />
+    <Y13.6 Text="砂轮X进" />
+    <Y13.7 Text="冷却启动" />
+    <Y14.0 Text="冷却停止" />
+    <Y14.1 Text="导轮启动" />
+    <Y14.2 Text="导轮停止" />
+    <Y14.3 Text="砂轮Y退" />
+    <Y14.4 Text="工作台退" />
+    <Y14.5 Text="导轮X退" />
+    <Y14.6 Text="2#机械进" />
+    <Y14.7 Text="空磨关闭" />
+    <Y15.0 Text="砂轮启动" />
+    <Y15.1 Text="砂轮停止" />
+    <Y15.2 Text="2#机械退" />
+    <Y15.3 Text="导轮Y进" />
+    <Y15.4 Text="导轮Y退" />
+    <Y15.5 Text="空磨开启" />
+    <Y15.6 Text="未定义" />
+    <Y15.7 Text="未定义" />
+    <R0.3 Text="" />
+    <R0.5 Text="" />
+    <R1.0 Text="" />
+    <R3.0 Text="" />
+    <R3.1 Text="" />
+    <R5.0 Text="固定触发" />
+    <R6.0 Text="" />
+    <R6.1 Text="" />
+    <R6.2 Text="" />
+    <R6.3 Text="" />
+    <R6.4 Text="" />
+    <R9.0 Text="" />
+    <R10.0 Text="点动1000" />
+    <R10.1 Text="点动100" />
+    <R10.2 Text="点动10" />
+    <R10.3 Text="点动1" />
+    <R10.4 Text="回零模式" />
+    <R10.5 Text="手动模式" />
+    <R10.6 Text="自动模式" />
+    <R10.7 Text="手轮模式" />
+    <R11.0 Text="" />
+    <R12.2 Text="" />
+    <R12.3 Text="" />
+    <R12.5 Text="" />
+    <R12.6 Text="运行状态" />
+    <R13.0 Text="" />
+    <R13.1 Text="导轮启动" />
+    <R14.0 Text="" />
+    <R14.1 Text="运行状态" />
+    <R14.3 Text="" />
+    <R14.7 Text="" />
+    <R15.0 Text="调试屏蔽" />
+    <R16.6 Text="" />
+    <R500 Text="" />
+    <R501 Text="" />
+    <R16.4 Text="" />
+    <R16.5 Text="" />
+    <R16.7 Text="" />
+    <R18.0 Text="M08开" />
+    <R18.1 Text="M09关" />
+    <R18.6 Text="M30" />
+    <R18.7 Text="M21" />
+    <R19.7 Text="" />
+    <R20.0 Text="" />
+    <R20.2 Text="" />
+    <R22.0 Text="倍率开关1" />
+    <R22.1 Text="" />
+    <R22.2 Text="" />
+    <R22.3 Text="" />
+    <R23.0 Text="" />
+    <R23.1 Text="" />
+    <R23.2 Text="" />
+    <R25.3 Text="" />
+    <R26.3 Text="" />
+    <R27.3 Text="" />
+    <R29.0 Text="" />
+    <R29.1 Text="" />
+    <R30.0 Text="" />
+    <R34.0 Text="" />
+    <R34.1 Text="M84" />
+    <R34.2 Text="" />
+    <R34.3 Text="" />
+    <R36.0 Text="" />
+    <R36.1 Text="" />
+    <R36.2 Text="" />
+    <R36.3 Text="" />
+    <R36.4 Text="" />
+    <R36.5 Text="" />
+    <R50.0 Text="默认模式" />
+    <R50.1 Text="" />
+    <R50.2 Text="" />
+    <R50.4 Text="" />
+    <R50.5 Text="" />
+    <R55.0 Text="" />
+    <R56.0 Text="" />
+    <R56.1 Text="" />
+    <R57.0 Text="" />
+    <R57.1 Text="" />
+    <R60.0 Text="" />
+    <R60.1 Text="" />
+    <R60.2 Text="" />
+    <R60.3 Text="" />
+    <R60.4 Text="" />
+    <R60.5 Text="" />
+    <R60.6 Text="" />
+    <R60.7 Text="" />
+    <R61.0 Text="" />
+    <R61.1 Text="" />
+    <R61.2 Text="" />
+    <R61.3 Text="" />
+    <R101.1 Text="" />
+    <R101.2 Text="" />
+    <R105.0 Text="" />
+    <R106.0 Text="" />
+    <R107.0 Text="" />
+    <R107.1 Text="" />
+    <R136.3 Text="" />
+    <R139.6 Text="MState" />
+    <R139.7 Text="Mcode" />
+    <R140.1 Text="M10" />
+    <R140.2 Text="M11" />
+    <R140.3 Text="M12" />
+    <R140.4 Text="M13" />
+    <R148.0 Text="机械加工" />
+    <R149.0 Text="单循环" />
+    <R149.7 Text="1#激活" />
+    <R150.0 Text="1#可执行" />
+    <R150.1 Text="1#正磨料" />
+    <R150.2 Text="1#已回零" />
+    <R150.3 Text="1#已回开" />
+    <R150.4 Text="1#去磨料" />
+    <R150.5 Text="1#去待机" />
+    <R150.6 Text="1#去取料" />
+    <R150.7 Text="1#去原点" />
+    <R151.0 Text="1#运到位" />
+    <R151.1 Text="1#回到位" />
+    <R151.2 Text="1#磨到位" />
+    <R151.3 Text="1#取到位" />
+    <R151.4 Text="1#等到位" />
+    <R151.6 Text="1#磨忙开" />
+    <R151.7 Text="1#磨忙关" />
+    <R152.0 Text="1#Y上开" />
+    <R152.2 Text="1#Y下开" />
+    <R152.4 Text="1#回零动" />
+    <R153.0 Text="1Y回零上" />
+    <R153.1 Text="1Y自动上" />
+    <R154.0 Text="1#料前进" />
+    <R154.1 Text="1#料后退" />
+    <R170.1 Text="2#正磨料" />
+    <R200.0 Text="" />
+    <R200.1 Text="" />
+    <R200.2 Text="" />
+    <R200.3 Text="" />
+    <R220.5 Text="" />
+    <R220.6 Text="" />
+    <R220.7 Text="" />
+    <R240.0 Text="" />
+    <R245.0 Text="" />
+    <R250.0 Text="" />
+    <R275.0 Text="" />
+    <R275.1 Text="" />
+    <R275.2 Text="" />
+    <R275.3 Text="" />
+    <R275.4 Text="" />
+    <R276.0 Text="" />
+    <R277.0 Text="" />
+    <R277.1 Text="" />
+    <R277.2 Text="" />
+    <R277.3 Text="" />
+    <R278.0 Text="" />
+    <R278.1 Text="" />
+    <R278.2 Text="" />
+    <R278.3 Text="" />
+    <R279.0 Text="" />
+    <R279.1 Text="" />
+    <R279.2 Text="换新砂轮" />
+    <R279.3 Text="" />
+    <R279.4 Text="" />
+    <R280.0 Text="" />
+    <R280.1 Text="" />
+    <R280.2 Text="长修" />
+    <R280.3 Text="" />
+    <R280.4 Text="" />
+    <R283.0 Text="" />
+    <R284.0 Text="" />
+    <R285.0 Text="" />
+    <R285.1 Text="" />
+    <R285.2 Text="" />
+    <R285.3 Text="" />
+    <R285.4 Text="" />
+    <R286.0 Text="" />
+    <R286.1 Text="" />
+    <R286.2 Text="" />
+    <R286.3 Text="" />
+    <R286.4 Text="" />
+    <R286.5 Text="" />
+    <R287.2 Text="" />
+    <R287.3 Text="" />
+    <R287.4 Text="" />
+    <R287.5 Text="" />
+    <R291.0 Text="" />
+    <R291.1 Text="" />
+    <R291.2 Text="" />
+    <R291.3 Text="" />
+    <R291.4 Text="" />
+    <R292.0 Text="" />
+    <R292.1 Text="" />
+    <R292.2 Text="" />
+    <R292.3 Text="" />
+    <R292.4 Text="" />
+    <R296.0 Text="" />
+    <R296.1 Text="" />
+    <R296.2 Text="" />
+    <R296.3 Text="" />
+    <R296.4 Text="" />
+    <R297.0 Text="" />
+    <R297.1 Text="" />
+    <R297.2 Text="" />
+    <R297.3 Text="" />
+    <R297.4 Text="" />
+    <R300.0 Text="1#默认" />
+    <R300.1 Text="1#初始" />
+    <R300.2 Text="1#上到位" />
+    <R300.3 Text="1#取到位" />
+    <R300.4 Text="1#下到位" />
+    <R300.5 Text="1#料到前" />
+    <R300.6 Text="1#上到位" />
+    <R300.7 Text="1#等到位" />
+    <R301.0 Text="1#等到位" />
+    <R301.1 Text="1#磨到位" />
+    <R301.2 Text="1#下到位" />
+    <R301.3 Text="1#磨完成" />
+    <R301.4 Text="1#上到位" />
+    <R301.5 Text="1#等到位" />
+    <R304.7 Text="1#上电时" />
+    <R305.0 Text="1#初始态" />
+    <R305.1 Text="1#回零1" />
+    <R305.2 Text="1#回零2" />
+    <R305.3 Text="1#已回零" />
+    <R305.4 Text="1#回紧停" />
+    <R311.2 Text="2#下到位" />
+    <R311.3 Text="2#磨完成" />
+    <R350.0 Text="G10.3分段缓存第一段" />
+    <R350.1 Text="G10.3分段缓存第二段" />
+    <R351.0 Text="G10.4分段缓存第一段" />
+    <R351.1 Text="G10.4分段缓存第二段" />
+    <R390.0 Text="" />
+    <R390.1 Text="" />
+    <R390.2 Text="" />
+    <R390.3 Text="" />
+    <R390.4 Text="" />
+    <R400.0 Text="" />
+    <R400.1 Text="" />
+    <R401.0 Text="上磁报警" />
+    <R401.1 Text="修变报警" />
+    <R401.2 Text="砂轮报警" />
+    <R401.3 Text="工件报警" />
+    <R401.4 Text="送手故障" />
+    <R401.5 Text="修电故障" />
+    <R401.6 Text="修整报警" />
+    <R401.7 Text="料臂报警" />
+    <R410.0 Text="" />
+    <R410.1 Text="" />
+    <R410.2 Text="" />
+    <R500.0 Text="1#机械进" />
+    <R501.0 Text="1#机械退" />
+    <F0.0 Text="紧停" />
+    <F0.1 Text="" />
+    <F9.2 Text="" />
+    <F11.0 Text="" />
+    <F11.1 Text="" />
+    <F11.2 Text="" />
+    <F11.3 Text="" />
+    <F11.4 Text="" />
+    <F11.5 Text="" />
+    <F11.6 Text="" />
+    <F11.7 Text="" />
+    <F12.0 Text="" />
+    <F12.1 Text="" />
+    <F15.4 Text="" />
+    <F15.5 Text="" />
+    <F20.0 Text="" />
+    <F30.0 Text="" />
+    <F30.1 Text="" />
+    <F30.2 Text="" />
+    <F30.3 Text="" />
+    <F31.0 Text="" />
+    <F31.1 Text="" />
+    <F31.2 Text="" />
+    <F31.3 Text="" />
+    <F32.0 Text="" />
+    <F32.1 Text="" />
+    <F32.2 Text="" />
+    <F32.3 Text="" />
+    <F32.4 Text="" />
+    <F33.0 Text="" />
+    <F33.1 Text="" />
+    <F33.2 Text="" />
+    <G0.0 Text="" />
+    <G0.1 Text="" />
+    <G0.2 Text="" />
+    <G1.3 Text="" />
+    <G1.4 Text="" />
+    <G1.5 Text="" />
+    <G1.6 Text="" />
+    <G1.7 Text="" />
+    <G2.0 Text="" />
+    <G2.1 Text="" />
+    <G2.3 Text="" />
+    <G2.6 Text="" />
+    <G2.7 Text="" />
+    <G3.0 Text="" />
+    <G3.1 Text="" />
+    <G3.2 Text="" />
+    <G3.3 Text="" />
+    <G3.4 Text="" />
+    <G3.5 Text="" />
+    <G3.6 Text="" />
+    <G4.0 Text="" />
+    <G4.1 Text="" />
+    <G4.2 Text="" />
+    <G4.3 Text="" />
+    <G4.4 Text="" />
+    <G4.5 Text="" />
+    <G4.6 Text="" />
+    <G4.7 Text="" />
+    <G10.0 Text="循环启动" />
+    <G10.3 Text="" />
+    <G10.4 Text="" />
+    <G15.4 Text="" />
+    <G15.5 Text="" />
+    <G21.0 Text="" />
+    <G21.1 Text="" />
+    <G21.2 Text="" />
+    <G21.3 Text="" />
+    <G21.4 Text="" />
+    <G21.5 Text="" />
+    <G21.6 Text="" />
+    <G21.7 Text="" />
+    <G22.0 Text="" />
+    <G22.1 Text="" />
+    <G22.2 Text="" />
+    <G22.3 Text="" />
+    <G22.4 Text="" />
+    <G22.5 Text="" />
+    <G22.6 Text="" />
+    <G51.0 Text="" />
+    <G51.1 Text="" />
+    <G51.2 Text="" />
+    <G51.3 Text="" />
+    <G52.0 Text="" />
+    <G52.1 Text="" />
+    <G52.2 Text="" />
+    <G52.3 Text="" />
+    <G52.5 Text="" />
+    <G54.0 Text="" />
+    <G54.1 Text="" />
+    <G54.2 Text="" />
+    <G54.3 Text="" />
+    <G54.5 Text="" />
+    <G55.0 Text="" />
+    <G55.1 Text="" />
+    <G55.2 Text="" />
+    <G55.3 Text="" />
+    <G55.5 Text="" />
+    <G56.0 Text="" />
+    <G56.1 Text="" />
+    <G56.2 Text="" />
+    <G56.3 Text="" />
+    <G56.5 Text="" />
+    <R100.0 Text="手轮模式" />
+    <R140.0 Text="需要等待" />
+    <R152.1 Text="1#Y上关" />
+    <R152.3 Text="1#Y下关" />
+    <G10.1 Text="循环停止" />
+  </注释>
+</PLC>

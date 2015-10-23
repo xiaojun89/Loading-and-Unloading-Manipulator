@@ -1,0 +1,2577 @@
+*          PLC和NC信号状态交互
+RD.NOT          R5.0
+   MOVE
+PRM        1111
+PRM        0000
+PRM        R10
+PRM        D98
+RD              R5.0
+RD.NOT.STK      R5.0
+   COIN
+PRM        1
+PRM        D99
+WRT          R149.7
+RD              R149.7
+AND.NOT      F0.0
+   
+WRT          R150.0
+*          1#到位信号刷新
+RD              R5.0
+RD.NOT.STK      R5.0
+   COIN
+PRM        1
+PRM        D100
+WRT          R151.0
+RD              R5.0
+RD.NOT.STK      R5.0
+   COIN
+PRM        1
+PRM        D101
+WRT          R151.1
+RD              R5.0
+RD.NOT.STK      R5.0
+   COIN
+PRM        1
+PRM        D102
+WRT          R151.2
+RD              R5.0
+RD.NOT.STK      R5.0
+   COIN
+PRM        1
+PRM        D103
+WRT          R151.3
+RD              R5.0
+RD.NOT.STK      R5.0
+   COIN
+PRM        1
+PRM        D104
+WRT          R151.4
+*          无心磨PLC头
+RD.NOT          R5.0
+AND.NOT      R50.2
+   
+WRT          R50.0
+RD.NOT          R5.0
+   TMRB
+PRM        88
+PRM        40
+PRM        D990
+WRT          R50.2
+RD.NOT          X10.3
+RD.NOT.STK      X10.4
+RD.NOT.STK      X10.5
+RD.NOT.STK      X11.2
+RD.NOT.STK      X11.3
+AND.NOT      X11.4
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R200.0
+RD              X11.5
+OR          R10.0
+AND          R200.0
+   
+WRT          Y11.5
+WRT          R10.0
+RD.NOT          X10.3
+RD.NOT.STK      X10.4
+RD.NOT.STK      X10.5
+RD.NOT.STK      X11.2
+RD.NOT.STK      X11.3
+AND.NOT      X11.5
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R200.1
+RD              X11.4
+OR          R10.1
+AND          R200.1
+   
+WRT          Y11.4
+WRT          R10.1
+RD.NOT          X10.3
+RD.NOT.STK      X10.4
+RD.NOT.STK      X10.5
+RD.NOT.STK      X11.2
+RD.NOT.STK      X11.4
+AND.NOT      X11.5
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R200.2
+RD              X11.3
+OR          R10.2
+AND          R200.2
+   
+WRT          Y11.3
+WRT          R10.2
+RD.NOT          X10.3
+RD.NOT.STK      X10.4
+RD.NOT.STK      X10.5
+RD.NOT.STK      X11.3
+RD.NOT.STK      X11.4
+AND.NOT      X11.5
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R200.3
+RD              X11.2
+OR          R10.3
+AND          R200.3
+   
+WRT          Y11.2
+WRT          R10.3
+RD.NOT          X10.3
+RD.NOT.STK      X10.5
+RD.NOT.STK      X10.6
+RD.NOT.STK      X11.2
+RD.NOT.STK      X11.3
+RD.NOT.STK      X11.4
+AND.NOT      X11.5
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R16.4
+*          回零模式
+RD              X10.4
+OR          R10.4
+RD.STK          R16.4
+AND.NOT      R50.0
+AND.STK
+   
+WRT          Y10.4
+WRT          R10.4
+RD.NOT          X10.4
+RD.NOT.STK      X10.5
+RD.NOT.STK      X10.6
+RD.NOT.STK      X11.2
+RD.NOT.STK      X11.3
+RD.NOT.STK      X11.4
+AND.NOT      X11.5
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R16.5
+*          手动模式
+RD              X10.3
+OR          R10.5
+RD.STK          R16.5
+AND.NOT      R50.0
+AND.STK
+   
+WRT          R10.5
+WRT          Y10.3
+RD.NOT          X10.3
+RD.NOT.STK      X10.4
+AND.NOT      X10.5
+AND.STK
+   
+WRT          R16.6
+*          自动模式
+RD              X10.6
+OR          R10.6
+OR          R50.0
+AND          R16.6
+   
+WRT          R10.6
+WRT          Y10.6
+RD.NOT          X10.3
+RD.NOT.STK      X10.4
+RD.NOT.STK      X10.6
+RD.NOT.STK      X11.2
+RD.NOT.STK      X11.3
+RD.NOT.STK      X11.4
+AND.NOT      X11.5
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R16.7
+*          手轮模式
+RD              X10.5
+OR          R10.7
+RD.STK          R16.7
+AND.NOT      R50.0
+AND.STK
+   
+WRT          R10.7
+WRT          Y10.5
+RD              R10.7
+   
+WRT          G0.2
+RD              R10.0
+AND.NOT      R10.6
+   MOVE
+PRM        1111
+PRM        1111
+PRM        D4
+PRM        G53
+RD              R10.1
+AND.NOT      R10.6
+   MOVE
+PRM        1111
+PRM        1111
+PRM        D3
+PRM        G53
+RD              R10.2
+AND.NOT      R10.6
+   MOVE
+PRM        1111
+PRM        1111
+PRM        D2
+PRM        G53
+RD              R10.3
+AND.NOT      R10.6
+   MOVE
+PRM        1111
+PRM        1111
+PRM        D1
+PRM        G53
+*          手动
+RD              R10.5
+   MOVE
+PRM        1111
+PRM        1111
+PRM        D0
+PRM        G53
+*          比较运行状态是否等于2
+RD.NOT          R5.0
+   COMPB
+PRM        1
+PRM        2
+PRM        F10
+RD.NOT          R1.0
+   
+WRT          R11.0
+RD              R1.0
+OR          R12.2
+AND.NOT      R11.0
+   
+WRT          R12.2
+RD.NOT          R5.0
+   COMPB
+PRM        1
+PRM        3
+PRM        F10
+RD.NOT          R1.0
+   
+WRT          R11.0
+RD              R1.0
+OR          R12.3
+AND.NOT      R11.0
+   
+WRT          R12.3
+RD.NOT          R5.0
+   COMPB
+PRM        1
+PRM        5
+PRM        F10
+RD.NOT          R1.0
+   
+WRT          R11.0
+RD              R1.0
+OR          R12.5
+AND.NOT      R11.0
+   
+WRT          R12.5
+*          指示程序启动
+RD              R140.3
+OR          R148.0
+RD.NOT.STK      R140.4
+AND.NOT      F0.0
+AND.STK
+   
+WRT          R148.0
+*          1#机械手手动
+RD              R10.5
+RD.STK          X12.3
+RD.NOT.STK      R501.0
+AND.NOT      F0.0
+AND.STK
+AND.STK
+   
+WRT          R500.0
+RD              R10.5
+RD.STK          X12.4
+RD.NOT.STK      R500.0
+AND.NOT      F0.0
+AND.STK
+AND.STK
+   
+WRT          R501.0
+RD.NOT          R5.0
+   MOVE
+PRM        1111
+PRM        1111
+PRM        R500
+PRM        D110
+RD.NOT          R5.0
+   MOVE
+PRM        1111
+PRM        1111
+PRM        R501
+PRM        D111
+*          1#机械手回零状态机
+RD.NOT          R305.0
+AND.NOT      R3.0
+   
+WRT          R304.7
+RD              R304.7
+OR          R305.0
+AND.NOT      R305.1
+RD.STK          R305.4
+AND.NOT      F0.0
+OR.STK
+   
+WRT          R305.0
+RD              R305.0
+OR          R305.3
+AND          R152.4
+OR          R305.1
+RD.NOT.STK      R305.2
+AND.NOT      R305.4
+AND.STK
+   
+WRT          R305.1
+RD              R305.1
+AND          X2.4
+OR          R305.2
+RD.NOT.STK      R305.3
+AND.NOT      R305.4
+AND.STK
+   
+WRT          R305.2
+RD              R305.2
+AND          X2.6
+OR          R305.3
+AND.NOT      R305.1
+   
+WRT          R305.3
+RD              R305.1
+OR          R305.2
+AND          F0.0
+OR          R305.4
+AND.NOT      R305.0
+   
+WRT          R305.4
+RD              R5.0
+OR.NOT      R5.0
+   
+WRT          R3.0
+*          1#机械手回零状态机输入
+RD              R10.4
+RD.STK          X12.4
+AND.NOT      F0.0
+AND.STK
+   
+WRT          R152.4
+*          1#机械手回零状态机输出
+RD              R305.1
+AND          R10.4
+   
+WRT          R153.0
+RD              R305.2
+RD.STK          R10.4
+RD.NOT.STK      F0.0
+AND.NOT      X2.6
+AND.STK
+AND.STK
+   
+WRT          Y2.0
+RD              R305.3
+AND          R10.4
+   
+WRT          R150.3
+RD              R150.3
+OR          R150.2
+   
+WRT          R150.2
+RD              R5.0
+RD.NOT.STK      R5.0
+   COIN
+PRM        1
+PRM        D97
+WRT          R149.0
+*          #1机械手自动运行状态机
+RD.NOT          R300.1
+AND.NOT      R3.1
+   
+WRT          R300.0
+RD              R300.0
+OR          R300.1
+AND.NOT      R301.7
+   
+WRT          R300.1
+RD              R300.1
+OR          R302.1
+RD.STK          R150.0
+RD.STK          R150.2
+RD.STK          R10.6
+AND          R148.0
+AND.STK
+AND.STK
+AND.STK
+OR          R301.7
+AND.NOT      R300.2
+   
+WRT          R301.7
+RD              R301.7
+AND          X2.4
+OR          R300.2
+AND.NOT      R300.3
+   
+WRT          R300.2
+RD              R300.2
+OR          R302.5
+AND          R151.3
+OR          R300.3
+AND.NOT      R300.4
+   
+WRT          R300.3
+RD              R300.3
+AND          X0.6
+OR          R300.4
+AND.NOT      R300.5
+   
+WRT          R300.4
+RD              R300.4
+AND          X0.7
+OR          R300.5
+AND.NOT      R300.6
+   
+WRT          R300.5
+RD              R300.5
+AND          X2.4
+OR          R300.6
+AND.NOT      R300.7
+   
+WRT          R300.6
+RD              R300.6
+AND          R151.4
+OR          R300.7
+AND.NOT      R302.0
+   
+WRT          R300.7
+RD              R300.7
+AND.NOT      R140.0
+OR          R302.0
+RD.NOT.STK      R301.0
+AND.NOT      R302.3
+AND.STK
+   
+WRT          R302.0
+RD              R302.0
+AND.NOT      R148.0
+OR          R302.3
+AND.NOT      R302.1
+   
+WRT          R302.3
+RD              R302.0
+RD.STK          R140.1
+AND.NOT      R170.1
+AND.STK
+OR          R301.0
+AND.NOT      R301.1
+   
+WRT          R301.0
+RD              R301.0
+AND          R151.2
+OR          R301.1
+AND.NOT      R301.2
+   
+WRT          R301.1
+RD              R301.1
+AND          X0.6
+OR          R301.2
+AND.NOT      R301.3
+   
+WRT          R301.2
+RD              R301.2
+AND          R140.2
+OR          R301.3
+AND.NOT      R301.4
+   
+WRT          R301.3
+RD              R301.3
+AND          X2.4
+OR          R301.4
+AND.NOT      R301.5
+   
+WRT          R301.4
+RD              R301.4
+AND          R151.4
+OR          R301.5
+AND.NOT      R302.4
+AND.NOT      R302.5
+   
+WRT          R301.5
+RD              R301.5
+RD.NOT.STK      R150.0
+RD.NOT.STK      R10.6
+OR          R149.0
+OR.STK
+AND.STK
+OR          R302.4
+AND.NOT      R302.1
+   
+WRT          R302.4
+RD              R301.5
+RD.STK          R150.0
+RD.STK          R10.6
+AND.NOT      R149.0
+AND.STK
+AND.STK
+OR          R302.5
+AND.NOT      R300.3
+   
+WRT          R302.5
+RD              R302.4
+OR          R302.3
+AND          R151.1
+OR          R302.1
+AND.NOT      R301.7
+   
+WRT          R302.1
+RD              R5.0
+OR.NOT      R5.0
+   
+WRT          R3.1
+*          #1机械手自动运行状态机输出
+RD              R300.2
+OR          R302.5
+   
+WRT          R150.6
+RD              R300.3
+AND          X1.0
+OR          R301.1
+   
+WRT          R152.2
+RD              R300.4
+   
+WRT          R154.0
+RD              R300.5
+OR          R301.7
+OR          R301.3
+AND.NOT      F0.0
+   
+WRT          R153.1
+RD              R300.6
+   
+WRT          R154.1
+RD              R300.6
+OR          R301.4
+   
+WRT          R150.5
+RD              R302.3
+OR          R302.4
+   
+WRT          R150.7
+RD.NOT          R302.3
+OR.NOT      R301.5
+AND          R140.0
+OR          R302.0
+AND.NOT      F0.0
+   
+WRT          R140.0
+RD              R301.0
+   
+WRT          R150.4
+RD              R301.0
+   
+WRT          R151.6
+RD              R301.5
+   
+WRT          R151.7
+*          #1机械手输出信号控制
+RD              R151.6
+OR          R150.1
+AND.NOT      R151.7
+   
+WRT          R150.1
+*          1# 驱动器输入信号
+RD              R150.5
+OR          R150.6
+RD.NOT.STK      R150.4
+AND.NOT      R150.7
+AND          R10.6
+AND.STK
+   
+WRT          Y1.3
+WRT          Y1.5
+RD              R150.4
+OR          R150.5
+RD.NOT.STK      R150.6
+AND.NOT      R150.7
+AND          R10.6
+AND.STK
+   
+WRT          Y1.4
+RD              R150.4
+RD.STK          R150.5
+RD.STK          R150.6
+OR          R150.7
+OR.STK
+OR.STK
+RD.STK          R10.6
+AND.NOT      F0.0
+AND.STK
+   
+WRT          Y1.6
+RD.NOT          F0.0
+   
+WRT          Y1.1
+RD              F0.0
+   
+WRT          Y1.7
+RD              X2.6
+   
+WRT          Y2.6
+*          1#机械手通用输出
+RD              R153.0
+OR          R153.1
+   
+WRT          R152.0
+RD              R154.0
+OR          Y0.7
+AND.NOT      R154.1
+   
+WRT          Y0.7
+RD              X2.4
+AND.NOT      R152.2
+RD.NOT.STK      X2.4
+AND          R152.0
+OR.STK
+   
+WRT.NOT      Y0.5
+*          面板1#机械手进指示灯
+RD              R500.0
+AND          X12.3
+   
+WRT          Y12.3
+*          面板1#机械手退指示灯
+RD              R501.0
+OR          R152.4
+AND          X12.4
+   
+WRT          Y12.4
+*          M指令
+RD.NOT          F11.5
+RD.NOT.STK      F11.6
+AND.NOT      F11.7
+AND.STK
+   
+WRT          R19.7
+RD              F11.5
+RD.NOT.STK      F11.6
+AND.NOT      F11.7
+AND.STK
+   
+WRT          R29.0
+RD.NOT          F11.5
+RD.STK          F11.6
+AND.NOT      F11.7
+AND.STK
+   
+WRT          R29.1
+*          M指令选通
+RD              F12.0
+AND.NOT      F12.1
+   
+WRT          R139.6
+*          F11高四位的省略写法
+RD.NOT          F11.4
+RD.NOT.STK      F11.5
+RD.NOT.STK      F11.6
+AND.NOT      F11.7
+AND.STK
+AND.STK
+   
+WRT          R139.7
+*          M03指令（头架开）
+RD              F12.0
+AND.NOT      F12.1
+AND          F11.0
+AND          F11.1
+AND.NOT      F11.2
+AND.NOT      F11.3
+RD.NOT.STK      F11.4
+AND          R19.7
+AND.STK
+   
+WRT          R0.3
+*          M05指令（头架关）
+RD              F12.0
+AND.NOT      F12.1
+AND          F11.0
+AND.NOT      F11.1
+AND          F11.2
+AND.NOT      F11.3
+RD.NOT.STK      F11.4
+AND          R19.7
+AND.STK
+   
+WRT          R0.5
+*          M08指令（冷却开）
+RD              F12.0
+AND.NOT      F12.1
+AND.NOT      F11.0
+AND.NOT      F11.1
+AND.NOT      F11.2
+AND          F11.3
+RD.NOT.STK      F11.4
+AND          R19.7
+AND.STK
+   
+WRT          R18.0
+*          M09指令（冷却关）
+RD              F12.0
+AND.NOT      F12.1
+AND          F11.0
+AND.NOT      F11.1
+AND.NOT      F11.2
+AND          F11.3
+RD.NOT.STK      F11.4
+AND          R19.7
+AND.STK
+   
+WRT          R18.1
+*          M10指令
+RD              R139.6
+RD.NOT.STK      F11.0
+RD.STK          F11.1
+RD.NOT.STK      F11.2
+RD.STK          F11.3
+AND          R139.7
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R140.1
+*          M11指令
+RD              R139.6
+RD.STK          F11.0
+RD.STK          F11.1
+RD.NOT.STK      F11.2
+RD.STK          F11.3
+AND          R139.7
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R140.2
+*          M12指令
+RD              R139.6
+RD.NOT.STK      F11.0
+RD.NOT.STK      F11.1
+RD.STK          F11.2
+RD.STK          F11.3
+AND          R139.7
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R140.3
+*          M13指令
+RD              R139.6
+RD.STK          F11.0
+RD.NOT.STK      F11.1
+RD.STK          F11.2
+RD.STK          F11.3
+AND          R139.7
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R140.4
+*          M21
+RD              F12.0
+RD.NOT.STK      F12.1
+RD.STK          F11.0
+RD.NOT.STK      F11.1
+RD.STK          F11.2
+RD.NOT.STK      F11.3
+RD.STK          F11.4
+AND          R19.7
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R18.7
+*          M30指令
+RD              F12.0
+RD.NOT.STK      F12.1
+RD.NOT.STK      F11.0
+RD.STK          F11.1
+RD.STK          F11.2
+RD.STK          F11.3
+RD.STK          F11.4
+AND          R19.7
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R18.6
+*          M40
+RD              F12.0
+RD.NOT.STK      F12.1
+RD.NOT.STK      F11.0
+RD.NOT.STK      F11.1
+RD.NOT.STK      F11.2
+RD.STK          F11.3
+AND.NOT      F11.4
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND          R29.0
+AND.STK
+   
+WRT          R34.0
+*          M41
+RD              F12.0
+RD.NOT.STK      F12.1
+RD.STK          F11.0
+RD.NOT.STK      F11.1
+RD.NOT.STK      F11.2
+RD.STK          F11.3
+RD.NOT.STK      F11.4
+AND          R29.0
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R34.2
+*          M42
+RD              F12.0
+RD.NOT.STK      F12.1
+RD.NOT.STK      F11.0
+RD.STK          F11.1
+RD.NOT.STK      F11.2
+RD.STK          F11.3
+RD.NOT.STK      F11.4
+AND          R29.0
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R34.3
+*          M82
+RD              F12.0
+RD.NOT.STK      F12.1
+RD.NOT.STK      F11.0
+RD.STK          F11.1
+RD.NOT.STK      F11.2
+RD.NOT.STK      F11.3
+RD.STK          F11.4
+AND          R29.1
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R56.0
+*          M83
+RD              F12.0
+RD.NOT.STK      F12.1
+RD.STK          F11.0
+RD.STK          F11.1
+RD.NOT.STK      F11.2
+RD.NOT.STK      F11.3
+RD.STK          F11.4
+AND          R29.1
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R57.0
+*          M84
+RD              F12.0
+RD.NOT.STK      F12.1
+RD.NOT.STK      F11.0
+RD.NOT.STK      F11.1
+RD.STK          F11.2
+RD.NOT.STK      F11.3
+AND          F11.4
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND          R29.1
+AND.STK
+   
+WRT          R34.1
+RD              F12.0
+RD.NOT.STK      F12.1
+RD.STK          F11.0
+RD.NOT.STK      F11.1
+RD.STK          F11.2
+RD.NOT.STK      F11.3
+RD.STK          F11.4
+AND          R29.1
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R36.0
+RD              F12.0
+RD.NOT.STK      F12.1
+RD.NOT.STK      F11.0
+RD.STK          F11.1
+RD.STK          F11.2
+RD.NOT.STK      F11.3
+RD.STK          F11.4
+AND          R29.1
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R36.1
+RD              F12.0
+RD.NOT.STK      F12.1
+RD.STK          F11.0
+RD.STK          F11.1
+RD.STK          F11.2
+RD.NOT.STK      F11.3
+RD.STK          F11.4
+AND          R29.1
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R36.2
+*          M92新砂轮修整量未完成报警
+RD              F12.0
+RD.NOT.STK      F12.1
+RD.NOT.STK      F11.0
+RD.NOT.STK      F11.1
+RD.STK          F11.2
+RD.STK          F11.3
+RD.STK          F11.4
+AND          R29.1
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R36.3
+*          M93
+RD              F12.0
+RD.NOT.STK      F12.1
+RD.STK          F11.0
+RD.NOT.STK      F11.1
+RD.STK          F11.2
+RD.STK          F11.3
+RD.STK          F11.4
+AND          R29.1
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R36.4
+*          M94
+RD              F12.0
+RD.NOT.STK      F12.1
+RD.NOT.STK      F11.0
+RD.STK          F11.1
+RD.STK          F11.2
+RD.STK          F11.3
+RD.STK          F11.4
+AND          R29.1
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R36.5
+RD.NOT          F12.0
+AND          F12.1
+   
+WRT          R23.0
+RD              R34.1
+RD.STK          R34.2
+RD.STK          R34.3
+RD.STK          R36.0
+OR          R36.1
+RD.STK          R18.7
+RD.STK          R36.3
+OR          R36.4
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+   
+WRT          R240.0
+*          M指令被触发时通知上位机等待PLC做出响应
+RD              R0.3
+OR          R0.5
+RD.STK          R23.0
+RD.STK          R240.0
+RD.STK          R36.5
+RD.STK          R56.0
+OR          R57.0
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+   
+WRT          R351.0
+RD              R140.1
+RD.STK          R140.2
+RD.STK          R140.3
+OR          R140.4
+OR.STK
+OR.STK
+   
+WRT          R351.1
+RD              R351.0
+OR          R351.1
+   
+WRT          G10.4
+*          修整点跳进量报警
+RD              R56.0
+OR          R56.1
+AND.NOT      F0.1
+   
+WRT          R56.1
+WRT          G22.5
+RD              R57.0
+OR          R57.1
+AND.NOT      F0.1
+   
+WRT          R57.1
+WRT          G22.6
+RD              R410.0
+AND          R5.0
+   
+WRT          G0.1
+RD              F0.1
+OR          R286.0
+RD.NOT.STK      R286.1
+AND          R5.0
+AND.STK
+   
+WRT          R286.0
+RD              R286.0
+   TMRB
+PRM        46
+PRM        2
+PRM        D625
+WRT          R286.1
+RD              R286.0
+OR          R286.2
+AND.NOT      R34.1
+   
+WRT          G3.2
+WRT          R286.2
+RD              R286.0
+OR          R286.4
+AND.NOT      R286.5
+   
+WRT          R286.4
+RD              R286.4
+   TMRB
+PRM        50
+PRM        1
+PRM        D600
+WRT          R286.3
+RD              R286.3
+   TMRB
+PRM        49
+PRM        12
+PRM        D605
+WRT          R286.5
+RD              R34.1
+   
+WRT          R220.7
+*          导轮Y轴原点
+RD              X11.0
+AND          R12.6
+   TMRB
+PRM        78
+PRM        1
+PRM        D945
+WRT          R292.0
+RD              R292.0
+OR          R292.1
+RD.NOT.STK      R34.1
+RD.NOT.STK      R18.6
+RD.NOT.STK      F0.0
+AND.NOT      F0.1
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R292.1
+RD              R292.1
+   
+WRT          Y11.0
+WRT          G3.4
+RD              R292.0
+OR          R292.2
+RD.NOT.STK      F0.0
+RD.NOT.STK      F0.1
+AND.NOT      R292.4
+AND.STK
+AND.STK
+   
+WRT          R292.2
+RD              R292.2
+   TMRB
+PRM        79
+PRM        5
+PRM        D950
+WRT          R292.3
+RD              R292.3
+   TMRB
+PRM        80
+PRM        30
+PRM        D955
+WRT          R292.4
+*          砂轮修整
+RD              R10.6
+AND          X11.7
+   TMRB
+PRM        19
+PRM        15
+PRM        D440
+WRT          R279.0
+RD              R279.0
+OR          R279.1
+RD.NOT.STK      R34.1
+RD.NOT.STK      R18.6
+RD.NOT.STK      F0.0
+AND.NOT      F0.1
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R279.1
+RD              R279.1
+   
+WRT          G4.5
+WRT          Y11.7
+RD              R279.0
+OR          R279.3
+RD.NOT.STK      R279.4
+RD.NOT.STK      F0.1
+AND.NOT      F0.0
+AND.STK
+AND.STK
+   
+WRT          R279.3
+RD              R279.3
+   TMRB
+PRM        20
+PRM        5
+PRM        D445
+WRT          R279.2
+RD              R279.2
+   TMRB
+PRM        23
+PRM        30
+PRM        D460
+WRT          R279.4
+*          砂轮Y轴对刀
+RD              X12.1
+RD.STK          R10.5
+OR          R10.7
+AND.STK
+   TMRB
+PRM        42
+PRM        15
+PRM        D640
+WRT          R296.0
+RD              R296.0
+OR          R296.1
+RD.NOT.STK      R34.1
+RD.NOT.STK      R18.6
+RD.NOT.STK      F0.0
+AND.NOT      F0.1
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R296.1
+RD              R296.1
+   
+WRT          G4.0
+WRT          Y12.1
+RD              R296.0
+OR          R296.2
+RD.NOT.STK      R296.4
+RD.NOT.STK      F0.1
+AND.NOT      F0.0
+AND.STK
+AND.STK
+   
+WRT          R296.2
+RD              R296.2
+   TMRB
+PRM        40
+PRM        2
+PRM        D650
+WRT          R296.3
+RD              R296.3
+   TMRB
+PRM        41
+PRM        15
+PRM        D645
+WRT          R296.4
+*          导轮Y轴对刀
+RD              X12.2
+RD.STK          R10.5
+OR          R10.7
+AND.STK
+   TMRB
+PRM        51
+PRM        15
+PRM        D735
+WRT          R297.0
+RD              R297.0
+OR          R297.1
+RD.NOT.STK      R34.1
+RD.NOT.STK      R18.6
+RD.NOT.STK      F0.1
+AND.NOT      F0.0
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R297.1
+RD              R297.1
+   
+WRT          G4.3
+WRT          Y12.2
+RD              R297.0
+OR          R297.2
+RD.NOT.STK      R297.4
+RD.NOT.STK      F0.0
+AND.NOT      F0.1
+AND.STK
+AND.STK
+   
+WRT          R297.2
+RD              R297.2
+   TMRB
+PRM        52
+PRM        2
+PRM        D740
+WRT          R297.3
+RD              R297.3
+   TMRB
+PRM        53
+PRM        15
+PRM        D745
+WRT          R297.4
+*          导轮修整
+RD              R10.6
+AND          X12.0
+   TMRB
+PRM        21
+PRM        15
+PRM        D450
+WRT          R280.0
+RD              R280.0
+OR          R280.1
+RD.NOT.STK      R34.1
+RD.NOT.STK      R18.6
+RD.NOT.STK      F0.1
+AND.NOT      F0.0
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R280.1
+RD              R280.1
+   
+WRT          Y12.0
+WRT          G4.4
+RD              R280.0
+OR          R280.3
+RD.NOT.STK      R280.4
+RD.NOT.STK      F0.1
+AND.NOT      F0.0
+AND.STK
+AND.STK
+   
+WRT          R280.3
+RD              R280.3
+   TMRB
+PRM        22
+PRM        5
+PRM        D455
+WRT          R280.2
+RD              R280.2
+   TMRB
+PRM        24
+PRM        30
+PRM        D465
+WRT          R280.4
+*          空运行
+RD              R10.6
+RD.STK          X13.1
+AND          R6.2
+AND.STK
+   TMRB
+PRM        35
+PRM        20
+PRM        D720
+WRT          R390.0
+RD              R390.0
+OR          R390.1
+RD.NOT.STK      R18.6
+RD.NOT.STK      F0.1
+AND.NOT      F0.0
+AND.STK
+AND.STK
+   
+WRT          R390.1
+WRT          G4.1
+WRT          Y13.1
+RD              R390.0
+OR          R390.3
+RD.NOT.STK      R390.4
+RD.NOT.STK      F0.1
+AND.NOT      F0.0
+AND.STK
+AND.STK
+   
+WRT          R390.3
+RD              R390.3
+   TMRB
+PRM        34
+PRM        5
+PRM        D725
+WRT          R390.2
+RD              R390.2
+   TMRB
+PRM        33
+PRM        30
+PRM        D730
+WRT          R390.4
+*          工作台回原点
+RD              X10.2
+AND          R12.6
+OR          R277.0
+RD.NOT.STK      R34.1
+RD.NOT.STK      R18.6
+RD.NOT.STK      F0.1
+AND.NOT      F0.0
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R277.0
+RD              R277.0
+   
+WRT          Y10.2
+WRT          G3.6
+RD              R277.0
+OR          R277.1
+RD.NOT.STK      R277.3
+RD.NOT.STK      F0.1
+AND.NOT      F0.0
+AND.STK
+AND.STK
+   
+WRT          R277.1
+RD              R277.1
+   TMRB
+PRM        15
+PRM        5
+PRM        D420
+WRT          R277.2
+RD              R277.2
+   TMRB
+PRM        16
+PRM        30
+PRM        D425
+WRT          R277.3
+*          砂轮Y轴原点
+RD              X10.7
+AND          R12.6
+OR          R278.0
+RD.NOT.STK      R34.1
+RD.NOT.STK      R18.6
+RD.NOT.STK      F0.0
+AND.NOT      F0.1
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R278.0
+RD              R278.0
+   
+WRT          G3.5
+WRT          Y10.7
+RD              R278.0
+OR          R278.1
+RD.NOT.STK      R278.3
+RD.NOT.STK      F0.0
+AND.NOT      F0.1
+AND.STK
+AND.STK
+   
+WRT          R278.1
+RD              R278.1
+   TMRB
+PRM        17
+PRM        5
+PRM        D430
+WRT          R278.2
+RD              R278.2
+   TMRB
+PRM        18
+PRM        30
+PRM        D435
+WRT          R278.3
+*          砂轮X轴原点
+RD              X10.0
+AND          R12.6
+   TMRB
+PRM        25
+PRM        1
+PRM        D470
+WRT          R275.0
+RD              R275.0
+OR          R275.1
+RD.NOT.STK      R18.6
+RD.NOT.STK      R34.1
+RD.NOT.STK      F0.0
+AND.NOT      F0.1
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R275.1
+RD              R275.1
+   
+WRT          G4.7
+WRT          Y10.0
+RD              R275.0
+OR          R275.2
+RD.NOT.STK      R275.4
+RD.NOT.STK      F0.0
+AND.NOT      F0.1
+AND.STK
+AND.STK
+   
+WRT          R275.2
+RD              R275.2
+   TMRB
+PRM        13
+PRM        1
+PRM        D410
+WRT          R275.3
+RD              R275.3
+   TMRB
+PRM        14
+PRM        30
+PRM        D415
+WRT          R275.4
+*          停止
+RD              X16.1
+OR          R276.0
+RD.NOT.STK      R34.1
+RD.NOT.STK      R18.6
+RD.NOT.STK      F0.0
+AND.NOT      F0.1
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R276.0
+RD              R276.0
+   
+WRT          G4.6
+*          报警后无法启动程序信息提示
+RD              X16.0
+AND          R283.0
+   
+WRT          G2.0
+*          无料加工等待
+RD              R34.3
+   
+WRT          R284.0
+*          待机状态
+RD.NOT          R12.2
+RD.NOT.STK      R12.3
+AND.NOT      R12.5
+AND.STK
+   
+WRT          R12.6
+*          导轮停止
+RD              X14.2
+AND          R12.6
+   
+WRT          R13.0
+*          导轮启动
+RD              X14.1
+OR          R13.1
+AND.NOT      R13.0
+RD.NOT.STK      F0.0
+RD.STK          Y0.1
+AND          X0.0
+AND.STK
+AND.STK
+   
+WRT          R13.1
+RD              R13.1
+   
+WRT.NOT      Y14.2
+WRT          Y0.4
+WRT          Y14.1
+RD              F20.0
+   MOVE
+PRM        1111
+PRM        1111
+PRM        D3
+PRM        G30
+RD.NOT          F20.0
+   MOVE
+PRM        1111
+PRM        1111
+PRM        D5
+PRM        G30
+*          驱动器报警
+RD.NOT          F30.0
+RD.NOT.STK      F30.1
+RD.NOT.STK      F30.2
+RD.NOT.STK      F30.3
+RD.NOT.STK      F32.0
+RD.NOT.STK      F32.1
+RD.NOT.STK      F32.2
+AND.NOT      F32.3
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R101.1
+RD.NOT          X2.0
+RD.STK          Y0.2
+AND          Y0.0
+AND.STK
+   
+WRT          R101.2
+RD              X16.0
+AND.NOT      R283.0
+AND          R10.6
+RD.STK          R279.2
+OR          R280.2
+OR.STK
+RD.STK          R275.3
+RD.STK          R277.2
+RD.STK          R278.2
+RD.STK          R285.3
+RD.STK          R286.3
+RD.STK          R390.2
+RD.STK          R291.3
+RD.STK          R292.3
+RD.STK          R296.3
+OR          R297.3
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+AND          R101.1
+   
+WRT          G10.0
+RD              R34.1
+OR          R410.1
+AND.NOT      R410.2
+   
+WRT          R410.1
+RD              R410.1
+   TMRB
+PRM        60
+PRM        30
+PRM        D785
+WRT          R410.2
+RD              R401.4
+RD.STK          R401.5
+RD.STK          R401.6
+OR          R401.7
+OR.STK
+OR.STK
+AND.NOT      R12.6
+RD.STK          R401.0
+RD.STK          R401.1
+RD.STK          R401.2
+RD.STK          R401.3
+OR          R410.0
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+RD.NOT.STK      R410.1
+AND          R5.0
+AND.STK
+   
+WRT          G4.2
+WRT          R410.0
+RD              R10.5
+RD.STK          R10.0
+RD.STK          R10.1
+RD.STK          R10.2
+OR          R10.3
+OR.STK
+OR.STK
+OR.STK
+AND          R12.6
+AND.NOT      F9.2
+   
+WRT          R14.0
+RD              R12.2
+RD.STK          R12.3
+OR          R12.5
+OR.STK
+   
+WRT          R14.1
+*          砂轮X-
+RD.NOT          X14.3
+RD.NOT.STK      X12.6
+RD.NOT.STK      X13.6
+RD.NOT.STK      X12.7
+RD.NOT.STK      X14.4
+RD.NOT.STK      X15.3
+RD.NOT.STK      X15.4
+AND          R61.0
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R60.0
+RD              R14.0
+RD.STK          X13.4
+AND          R60.0
+AND.STK
+   
+WRT          Y13.4
+WRT          G56.0
+*          砂轮X+
+RD.NOT          X14.3
+RD.NOT.STK      X12.6
+RD.NOT.STK      X13.4
+RD.NOT.STK      X12.7
+RD.NOT.STK      X14.4
+RD.NOT.STK      X15.3
+RD.NOT.STK      X15.4
+AND          R61.0
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R60.1
+RD              R14.0
+RD.STK          X13.6
+AND          R60.1
+AND.STK
+   
+WRT          Y13.6
+WRT          G55.0
+*          砂轮Y+
+RD.NOT          X14.3
+RD.NOT.STK      X12.6
+RD.NOT.STK      X13.4
+RD.NOT.STK      X13.6
+RD.NOT.STK      X14.4
+RD.NOT.STK      X15.3
+RD.NOT.STK      X15.4
+AND          R61.0
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R60.2
+RD              R14.0
+RD.STK          X12.7
+AND          R60.2
+AND.STK
+   
+WRT          Y12.7
+WRT          G55.1
+*          砂轮Y-
+RD.NOT          X12.7
+RD.NOT.STK      X12.6
+RD.NOT.STK      X13.4
+RD.NOT.STK      X13.6
+RD.NOT.STK      X14.4
+RD.NOT.STK      X15.3
+RD.NOT.STK      X15.4
+AND          R61.0
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R60.3
+RD              R14.0
+RD.STK          X14.3
+AND          R60.3
+AND.STK
+   
+WRT          Y14.3
+WRT          G56.1
+*          工作台+
+RD.NOT          X12.7
+RD.NOT.STK      X14.3
+RD.NOT.STK      X13.4
+RD.NOT.STK      X13.6
+RD.NOT.STK      X14.4
+RD.NOT.STK      X15.3
+RD.NOT.STK      X15.4
+AND          R61.0
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R60.4
+RD              R14.0
+RD.STK          X12.6
+AND          R60.4
+AND.STK
+   
+WRT          Y12.6
+WRT          G55.2
+*          工作台-
+RD.NOT          X12.7
+RD.NOT.STK      X14.3
+RD.NOT.STK      X12.6
+RD.NOT.STK      X13.6
+RD.NOT.STK      X13.4
+RD.NOT.STK      X15.3
+RD.NOT.STK      X15.4
+AND          R61.0
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R60.5
+RD              R14.0
+RD.STK          X14.4
+AND          R60.5
+AND.STK
+   
+WRT          Y14.4
+WRT          G56.2
+*          导轮X+
+RD.NOT          X12.7
+RD.NOT.STK      X14.3
+RD.NOT.STK      X12.6
+RD.NOT.STK      X13.6
+RD.NOT.STK      X13.4
+RD.NOT.STK      X14.4
+RD.NOT.STK      X15.4
+AND          R61.0
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R60.6
+RD              R14.0
+RD.STK          X15.3
+AND          R60.6
+AND.STK
+   
+WRT          Y15.3
+WRT          G55.3
+RD.NOT          X12.5
+AND.NOT      X14.5
+   
+WRT          R61.0
+*          导轮X-
+RD.NOT          X12.7
+RD.NOT.STK      X14.3
+RD.NOT.STK      X12.6
+RD.NOT.STK      X13.6
+RD.NOT.STK      X13.4
+RD.NOT.STK      X14.4
+RD.NOT.STK      X15.3
+AND          R61.0
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R60.7
+RD              R14.0
+RD.STK          X15.4
+AND          R60.7
+AND.STK
+   
+WRT          Y15.4
+WRT          G56.3
+*          导轮Y+
+RD.NOT          X12.7
+RD.NOT.STK      X14.3
+RD.NOT.STK      X12.6
+RD.NOT.STK      X13.6
+RD.NOT.STK      X13.4
+RD.NOT.STK      X15.4
+RD.NOT.STK      X15.3
+AND.NOT      X14.4
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R61.1
+RD              R61.1
+AND.NOT      X14.5
+   
+WRT          R61.2
+RD              R14.0
+RD.STK          X12.5
+AND          R61.2
+AND.STK
+   
+WRT          Y12.5
+WRT          G55.5
+*          导轮Y-
+RD              R61.1
+AND.NOT      X12.5
+   
+WRT          R61.3
+RD              R14.0
+RD.STK          X14.5
+AND          R61.3
+AND.STK
+   
+WRT          Y14.5
+WRT          G56.5
+RD              R10.4
+AND.NOT      R14.1
+   
+WRT          R14.3
+RD              R10.0
+RD.STK          R10.1
+RD.STK          R10.2
+OR          R10.3
+OR.STK
+OR.STK
+   
+WRT          R14.7
+RD.NOT          X13.4
+RD.NOT.STK      X13.6
+RD.NOT.STK      R10.4
+AND.NOT      R14.7
+AND.STK
+AND.STK
+OR          R14.1
+   
+WRT          G54.0
+RD.NOT          X12.7
+RD.NOT.STK      X14.3
+RD.NOT.STK      R10.4
+AND.NOT      R14.7
+AND.STK
+AND.STK
+OR          R14.1
+   
+WRT          G54.1
+RD.NOT          X12.6
+RD.NOT.STK      X14.4
+RD.NOT.STK      R10.4
+AND.NOT      R14.7
+AND.STK
+AND.STK
+OR          R14.1
+   
+WRT          G54.2
+RD.NOT          X15.3
+RD.NOT.STK      X15.4
+RD.NOT.STK      R10.4
+AND.NOT      R14.7
+AND.STK
+AND.STK
+OR          R14.1
+   
+WRT          G54.3
+RD.NOT          X12.5
+RD.NOT.STK      X14.5
+RD.NOT.STK      R10.4
+AND.NOT      R14.7
+AND.STK
+AND.STK
+OR          R14.1
+   
+WRT          G54.5
+RD.NOT          R5.0
+   
+WRT          R20.0
+WRT          R20.2
+RD              R5.0
+RD.NOT.STK      R5.0
+   MULB
+PRM        1
+PRM        R20
+PRM        20
+PRM        G19
+WRT          R9.0
+RD              X17.0
+   
+WRT          R22.0
+RD              X17.1
+   
+WRT          R22.1
+RD              X17.2
+   
+WRT          R22.2
+RD              X17.3
+   
+WRT          R22.3
+RD              R5.0
+RD.NOT.STK      R5.0
+   MULB
+PRM        1
+PRM        R22
+PRM        10
+PRM        G17
+WRT          R9.0
+RD              R5.0
+RD.NOT.STK      R5.0
+   MULB
+PRM        1
+PRM        R22
+PRM        10
+PRM        G49
+WRT          R9.0
+RD              R5.0
+RD.NOT.STK      R5.0
+   MULB
+PRM        1
+PRM        R22
+PRM        10
+PRM        G18
+WRT          R9.0
+*          T指令触发
+RD              R23.0
+   
+WRT          R23.1
+RD              R23.0
+   MOVE
+PRM        1111
+PRM        1111
+PRM        F13
+PRM        G13
+RD              R23.0
+   MOVE
+PRM        1111
+PRM        1111
+PRM        F14
+PRM        G14
+RD              R23.1
+   
+WRT          R23.2
+*          单程序段
+RD              X13.0
+AND          R26.3
+   
+WRT          R25.3
+RD.NOT          X13.0
+OR          R26.3
+AND.NOT      R25.3
+   
+WRT          R26.3
+RD              R25.3
+AND.NOT      R27.3
+RD.NOT.STK      R25.3
+AND          R27.3
+OR.STK
+   
+WRT          R27.3
+RD              R27.3
+   
+WRT          G15.4
+RD              F15.4
+   
+WRT          Y13.0
+*          限制回零
+RD              R5.0
+RD.NOT.STK      R5.0
+   COIN
+PRM        D290
+PRM        D0
+WRT          R55.0
+RD              R14.3
+RD.NOT.STK      R55.0
+AND          X13.4
+AND.STK
+   
+WRT          G52.0
+RD              R14.3
+RD.NOT.STK      R55.0
+AND          X14.3
+AND.STK
+   
+WRT          G52.1
+RD              R14.3
+RD.NOT.STK      R55.0
+AND          X14.4
+AND.STK
+   
+WRT          G52.2
+RD              R14.3
+RD.NOT.STK      R55.0
+AND          X15.4
+AND.STK
+   
+WRT          G52.3
+RD              R14.3
+RD.NOT.STK      R55.0
+AND          X14.5
+AND.STK
+   
+WRT          G52.5
+RD.NOT          F30.0
+RD.STK          F30.1
+RD.STK          F30.2
+AND.NOT      F30.3
+AND.STK
+AND.STK
+RD.NOT.STK      F31.0
+RD.STK          F31.1
+RD.STK          F31.2
+AND.NOT      F31.3
+AND.STK
+AND.STK
+OR.STK
+RD.NOT.STK      F32.0
+RD.STK          F32.1
+RD.STK          F32.2
+AND.NOT      F32.3
+AND.STK
+AND.STK
+RD.NOT.STK      F33.0
+RD.STK          F33.1
+RD.STK          F33.2
+AND.NOT      F32.4
+AND.STK
+AND.STK
+OR.STK
+OR.STK
+AND          R15.0
+RD.STK          X1.7
+RD.STK          F0.0
+AND.NOT      F0.1
+OR.STK
+OR.STK
+   
+WRT          G0.0
+RD              R10.4
+RD.STK          R10.5
+RD.STK          R10.0
+RD.STK          R10.1
+RD.STK          R10.2
+RD.STK          R10.3
+OR          R10.7
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+   
+WRT          R30.0
+RD              R30.0
+   MOVE
+PRM        1111
+PRM        1111
+PRM        D29
+PRM        G9
+RD              R10.6
+   MOVE
+PRM        1111
+PRM        1111
+PRM        D17
+PRM        G9
+*          轴能使
+RD.NOT          F0.0
+   
+WRT          G51.3
+WRT          G51.1
+WRT          G51.0
+WRT          G51.2
+*          快进
+RD              X13.5
+   
+WRT          G15.5
+RD              F15.5
+   
+WRT          Y13.5
+*          润滑关
+RD              X13.3
+AND          R12.6
+   
+WRT          R245.0
+*          润滑开
+RD              X13.2
+OR          R50.1
+RD.NOT.STK      R245.0
+AND.NOT      F0.0
+AND.STK
+   
+WRT          R50.1
+RD              R50.1
+   
+WRT          Y0.1
+WRT.NOT      Y13.3
+WRT          Y13.2
+*          砂轮关
+RD              X15.1
+AND          R12.6
+   
+WRT          R105.0
+*          砂轮开
+RD              X15.0
+OR          R50.4
+RD.NOT.STK      R105.0
+RD.NOT.STK      F0.0
+RD.STK          Y0.1
+RD.NOT.STK      R220.5
+RD.NOT.STK      X2.0
+AND          X0.0
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R50.4
+RD              R50.4
+   
+WRT.NOT      Y15.1
+WRT          Y15.0
+WRT          Y0.0
+*          冷却关
+RD              X14.0
+AND          R12.6
+   
+WRT          R106.0
+*          冷却开
+RD              X13.7
+OR          R50.5
+RD.NOT.STK      R106.0
+RD.NOT.STK      F0.0
+AND          Y0.0
+AND.STK
+AND.STK
+   
+WRT          R50.5
+RD              R50.5
+   
+WRT.NOT      Y14.0
+WRT          Y13.7
+WRT          Y0.2
+*          空磨关
+RD              X14.7
+AND          R12.6
+   
+WRT          R107.1
+*          空磨开启
+RD              X15.5
+OR          R107.0
+AND.NOT      R107.1
+   
+WRT          R107.0
+RD              R107.0
+   
+WRT.NOT      Y14.7
+WRT          Y15.5
+WRT          G3.0
+RD              R34.1
+AND          R220.7
+RD.STK          R34.3
+AND.NOT      X0.3
+RD.STK          R36.0
+AND          X2.0
+RD.STK          R34.2
+RD.STK          R36.5
+AND.NOT      R220.6
+RD.STK          R56.0
+AND          R56.1
+RD.STK          R57.0
+AND          R57.1
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+   
+WRT          R250.0
+RD              R23.2
+RD.STK          R0.3
+AND          R13.1
+RD.STK          R0.5
+AND.NOT      R13.1
+RD.STK          R250.0
+RD.STK          R36.1
+AND          X0.0
+RD.STK          R18.7
+AND          R6.4
+RD.STK          R36.3
+AND          R136.3
+RD.STK          R36.4
+AND.NOT      R136.3
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+   
+WRT          R350.0
+RD              R301.2
+AND          R140.1
+RD.STK          R301.3
+AND          R140.2
+RD.STK          R311.2
+AND          R140.1
+RD.STK          R311.3
+AND          R140.2
+RD.STK          R148.0
+AND          R140.3
+RD.NOT.STK      R148.0
+AND          R140.4
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+OR.STK
+   
+WRT          R350.1
+RD              R350.0
+OR          R350.1
+   
+WRT          G10.3
+*          尺寸点建立
+RD              X11.6
+AND          R12.6
+   TMRB
+PRM        30
+PRM        40
+PRM        D495
+WRT          R285.0
+RD              R285.0
+OR          R285.1
+RD.NOT.STK      R34.1
+RD.NOT.STK      R18.6
+RD.NOT.STK      F0.0
+AND.NOT      F0.1
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R285.1
+RD              R285.1
+   
+WRT          G3.3
+WRT          Y11.6
+RD              R285.0
+OR          R285.2
+RD.NOT.STK      R285.4
+RD.NOT.STK      F0.0
+AND.NOT      F0.1
+AND.STK
+AND.STK
+   
+WRT          R285.2
+RD              R285.2
+   TMRB
+PRM        31
+PRM        5
+PRM        D500
+WRT          R285.3
+RD              R285.3
+   TMRB
+PRM        32
+PRM        30
+PRM        D505
+WRT          R285.4
+*          导轮X轴原点
+RD              X10.1
+AND          R12.6
+   TMRB
+PRM        75
+PRM        1
+PRM        D930
+WRT          R291.0
+RD              R291.0
+OR          R291.1
+RD.NOT.STK      R34.1
+RD.NOT.STK      R18.6
+RD.NOT.STK      F0.0
+AND.NOT      F0.1
+AND.STK
+AND.STK
+AND.STK
+   
+WRT          R291.1
+RD              R291.1
+   
+WRT          Y10.1
+WRT          G3.1
+RD              R291.0
+OR          R291.2
+RD.NOT.STK      R291.4
+RD.NOT.STK      F0.0
+AND.NOT      F0.1
+AND.STK
+AND.STK
+   
+WRT          R291.2
+RD              R291.2
+   TMRB
+PRM        76
+PRM        5
+PRM        D935
+WRT          R291.3
+RD              R291.3
+   TMRB
+PRM        77
+PRM        30
+PRM        D940
+WRT          R291.4
+*          砂轮关无法启动程序提示
+RD              X16.0
+RD.NOT.STK      Y0.0
+OR.NOT      R13.1
+AND.STK
+   
+WRT          G2.1
+RD              X15.0
+AND.NOT      X0.0
+   
+WRT          G2.3
+RD              X4.7
+   TMRB
+PRM        37
+PRM        90
+PRM        D710
+WRT          R287.2
+RD              R287.2
+RD.NOT.STK      R6.4
+AND          R6.1
+AND.STK
+   
+WRT          G2.6
+RD.NOT          X4.7
+   TMRB
+PRM        36
+PRM        90
+PRM        D715
+WRT          R287.3
+RD              R287.3
+RD.NOT.STK      R6.1
+AND          R6.4
+AND.STK
+   
+WRT          G2.7
+RD.NOT          R6.2
+AND          R5.0
+   
+WRT          G1.3
+RD              X6.1
+   TMRB
+PRM        58
+PRM        60
+PRM        D770
+WRT          R287.4
+RD              R287.4
+RD.STK          X3.1
+AND.NOT      X3.2
+AND.STK
+   
+WRT          G1.7
+RD.NOT          X6.1
+   TMRB
+PRM        59
+PRM        60
+PRM        D775
+WRT          R287.5
+RD              R287.5
+RD.STK          X3.2
+AND.NOT      X3.1
+AND.STK
+   
+WRT          G1.6
+RD              X5.1
+AND          R12.6
+   TMRB
+PRM        54
+PRM        90
+PRM        D750
+WRT          R400.0
+RD              R400.0
+RD.STK          X2.0
+AND.NOT      X2.1
+AND.STK
+   
+WRT          G1.5
+RD              X5.2
+AND          R12.6
+   TMRB
+PRM        55
+PRM        90
+PRM        D755
+WRT          R400.1
+RD              R400.1
+RD.STK          X2.1
+AND.NOT      X2.0
+AND.STK
+   
+WRT          G1.4
+RD              X3.0
+AND          R12.6
+   
+WRT          G21.4
+RD              R6.3
+AND          R12.6
+   
+WRT          G21.7
+RD              X2.0
+   
+WRT          G21.5
+RD              R6.0
+AND          R12.6
+   
+WRT          G21.6
+RD              X3.0
+AND.NOT      R12.6
+   
+WRT          R401.0
+WRT          G21.0
+RD              R6.3
+AND.NOT      R12.6
+   
+WRT          R401.1
+WRT          G21.3
+RD              X2.0
+   
+WRT          R401.2
+WRT          G21.1
+RD              R6.0
+AND.NOT      R12.6
+   
+WRT          R401.3
+WRT          G21.2
+RD              X0.0
+RD.STK          X0.1
+AND          R5.0
+AND.STK
+   
+WRT          R401.4
+WRT          G22.0
+RD              X2.0
+AND          X2.1
+   
+WRT          R401.5
+WRT          G22.1
+RD.NOT          R6.1
+RD.NOT.STK      R6.4
+AND          R5.0
+AND.STK
+   
+WRT          R401.6
+WRT          G22.2
+RD              X3.1
+AND          X3.2
+   
+WRT          R401.7
+WRT          G22.3
+*          新砂轮修整量未完成报警
+RD              R36.3
+OR          R136.3
+AND.NOT      R36.4
+   
+WRT          R136.3
+RD              R136.3
+   
+WRT          G22.4
