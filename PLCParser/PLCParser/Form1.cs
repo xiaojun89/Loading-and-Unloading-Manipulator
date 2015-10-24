@@ -23,7 +23,7 @@ namespace PLCParser
             label1.Text = "";
             Application.DoEvents();
             string regTempExpression = comboBox1.Text.ToUpper();
-            Regex rg = new Regex(regTempExpression + @"\d+.\d");
+            Regex rg = new Regex(regTempExpression + @"\d+(.\d)*");
             list.Clear();
             listBox1.Items.Clear();
             if (File.Exists(textBox1.Text))
@@ -88,47 +88,18 @@ namespace PLCParser
 
             try
             {
-                if (s1[0] != 'D')
-                {
-                    int comp1 = Int32.Parse(temp1.Substring(0, temp1.IndexOf('.'))) * 8 + Int32.Parse(temp1.Substring(temp1.IndexOf('.') + 1));
-                    int comp2 = Int32.Parse(temp2.Substring(0, temp2.IndexOf('.'))) * 8 + Int32.Parse(temp2.Substring(temp2.IndexOf('.') + 1));
-                    if (comp1 > comp2)
-                        result = 1;
-                    else if (comp1 < comp2)
-                        result = -1;
-                    else
-                        result = 0;
-                }
-                else
-                {
-                    int comp1 = Int32.Parse(temp1);
-                    int comp2 = Int32.Parse(temp2);
-                    if (comp1 > comp2)
-                        result = 1;
-                    else if (comp1 < comp2)
-                        result = -1;
-                    else
-                        result = 0;
-                }
-                /*
-                int major1 = Int32.Parse(temp1.Substring(0, temp1.IndexOf('.')));
-                int major2 = Int32.Parse(temp2.Substring(0, temp2.IndexOf('.')));
-                if (major1 > major2)
+                double comp1 = Double.Parse(temp1);
+                double comp2 = Double.Parse(temp2);
+                if (comp1 > comp2)
                     result = 1;
-                else if (major1 < major2)
+                else if (comp1 < comp2)
                     result = -1;
+                else if (temp1.Length < temp2.Length)//temp1是整数
+                    result = -1;
+                else if (temp1.Length > temp2.Length)//temp2是整数
+                    result = 1;
                 else
-                {
-                    int sub1 = Int32.Parse(temp1.Substring(temp1.IndexOf('.') + 1));
-                    int sub2 = Int32.Parse(temp2.Substring(temp2.IndexOf('.') + 1));
-                    if (sub1 > sub2)
-                        result = 1;
-                    else if (sub1 < sub2)
-                        result = -1;
-                    else
-                        result = 0;
-                }
-                */
+                    result = 0;
             }
             catch
             {
