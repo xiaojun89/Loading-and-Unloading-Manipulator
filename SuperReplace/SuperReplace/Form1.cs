@@ -123,7 +123,7 @@ namespace SuperReplace
         public bool LoadLadFile(string filename)
         {
             bool result = false;
-            Regex rg = new Regex(@"[XYRGFD]\d+(.\d)+");
+            Regex rg = new Regex(@"[XYRGFD]\d+(.\d)*");
             Regex commentRegex = new Regex("1#");
             try
             {
