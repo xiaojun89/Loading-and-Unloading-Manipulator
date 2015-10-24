@@ -1,4 +1,10 @@
 *          PLC和NC信号状态交互
+RD              R5.0
+RD.NOT.STK      R5.0
+   COIN
+PRM        1
+PRM        D97
+WRT          R149.0
 RD.NOT          R5.0
    MOVE
 PRM        1111
@@ -46,6 +52,47 @@ RD.NOT.STK      R5.0
 PRM        1
 PRM        D104
 WRT          R151.4
+RD              R5.0
+RD.NOT.STK      R5.0
+   COIN
+PRM        1
+PRM        D199
+WRT          R169.7
+RD              R169.7
+AND.NOT      F0.0
+   
+WRT          R170.0
+*          2#到位信号刷新
+RD              R5.0
+RD.NOT.STK      R5.0
+   COIN
+PRM        1
+PRM        D200
+WRT          R171.0
+RD              R5.0
+RD.NOT.STK      R5.0
+   COIN
+PRM        1
+PRM        D201
+WRT          R171.1
+RD              R5.0
+RD.NOT.STK      R5.0
+   COIN
+PRM        1
+PRM        D202
+WRT          R171.2
+RD              R5.0
+RD.NOT.STK      R5.0
+   COIN
+PRM        1
+PRM        D203
+WRT          R171.3
+RD              R5.0
+RD.NOT.STK      R5.0
+   COIN
+PRM        1
+PRM        D204
+WRT          R171.4
 *          无心磨PLC头
 RD.NOT          R5.0
 AND.NOT      R50.2
@@ -327,6 +374,35 @@ PRM        1111
 PRM        1111
 PRM        R501
 PRM        D111
+*          2#机械手手动
+RD              R10.5
+RD.STK          X14.6
+RD.NOT.STK      R503.0
+AND.NOT      F0.0
+AND.STK
+AND.STK
+   
+WRT          R502.0
+RD              R10.5
+RD.STK          X15.2
+RD.NOT.STK      R502.0
+AND.NOT      F0.0
+AND.STK
+AND.STK
+   
+WRT          R503.0
+RD.NOT          R5.0
+   MOVE
+PRM        1111
+PRM        1111
+PRM        R502
+PRM        D210
+RD.NOT          R5.0
+   MOVE
+PRM        1111
+PRM        1111
+PRM        R503
+PRM        D211
 *          1#机械手回零状态机
 RD.NOT          R305.0
 AND.NOT      R3.0
@@ -402,13 +478,82 @@ RD              R150.3
 OR          R150.2
    
 WRT          R150.2
+*          2#机械手回零状态机
+RD.NOT          R315.0
+AND.NOT      R3.4
+   
+WRT          R314.7
+RD              R314.7
+OR          R315.0
+AND.NOT      R315.1
+RD.STK          R315.4
+AND.NOT      F0.0
+OR.STK
+   
+WRT          R315.0
+RD              R315.0
+OR          R315.3
+AND          R172.4
+OR          R315.1
+RD.NOT.STK      R315.2
+AND.NOT      R315.4
+AND.STK
+   
+WRT          R315.1
+RD              R315.1
+AND          X1.1
+OR          R315.2
+RD.NOT.STK      R315.3
+AND.NOT      R315.4
+AND.STK
+   
+WRT          R315.2
+RD              R315.2
+AND          X1.6
+OR          R315.3
+AND.NOT      R315.1
+   
+WRT          R315.3
+RD              R315.1
+OR          R315.2
+AND          F0.0
+OR          R315.4
+AND.NOT      R315.0
+   
+WRT          R315.4
 RD              R5.0
-RD.NOT.STK      R5.0
-   COIN
-PRM        1
-PRM        D97
-WRT          R149.0
-*          #1机械手自动运行状态机
+OR.NOT      R5.0
+   
+WRT          R3.4
+*          2#机械手回零状态机输入
+RD              R10.4
+RD.STK          X15.2
+AND.NOT      F0.0
+AND.STK
+   
+WRT          R172.4
+*          2#机械手回零状态机输出
+RD              R315.1
+AND          R10.4
+   
+WRT          R173.0
+RD              R315.2
+RD.STK          R10.4
+RD.NOT.STK      F0.0
+AND.NOT      X1.6
+AND.STK
+AND.STK
+   
+WRT          Y2.5
+RD              R315.3
+AND          R10.4
+   
+WRT          R170.3
+RD              R170.3
+OR          R170.2
+   
+WRT          R170.2
+*          1#机械手自动运行状态机
 RD.NOT          R300.1
 AND.NOT      R3.1
    
@@ -552,7 +697,7 @@ RD              R5.0
 OR.NOT      R5.0
    
 WRT          R3.1
-*          #1机械手自动运行状态机输出
+*          1#机械手自动运行状态机输出
 RD              R300.2
 OR          R302.5
    
@@ -585,7 +730,13 @@ WRT          R150.7
 RD.NOT          R302.3
 OR.NOT      R301.5
 AND          R140.0
-OR          R302.0
+RD.NOT.STK      R312.3
+OR.NOT      R311.5
+AND          R140.0
+OR.STK
+RD.STK          R302.0
+OR          R312.0
+OR.STK
 AND.NOT      F0.0
    
 WRT          R140.0
@@ -598,7 +749,7 @@ WRT          R151.6
 RD              R301.5
    
 WRT          R151.7
-*          #1机械手输出信号控制
+*          1#机械手输出信号控制
 RD              R151.6
 OR          R150.1
 AND.NOT      R151.7
@@ -658,6 +809,249 @@ AND          R152.0
 OR.STK
    
 WRT.NOT      Y0.5
+*          2#机械手自动运行状态机
+RD.NOT          R310.1
+AND.NOT      R3.5
+   
+WRT          R310.0
+RD              R310.0
+OR          R310.1
+AND.NOT      R311.7
+   
+WRT          R310.1
+RD              R310.1
+OR          R312.1
+RD.STK          R170.0
+RD.STK          R170.2
+RD.STK          R10.6
+AND          R148.0
+AND.STK
+AND.STK
+AND.STK
+OR          R311.7
+AND.NOT      R310.2
+   
+WRT          R311.7
+RD              R311.7
+AND          X1.1
+OR          R310.2
+AND.NOT      R310.3
+   
+WRT          R310.2
+RD              R310.2
+OR          R312.5
+AND          R171.3
+OR          R310.3
+AND.NOT      R310.4
+   
+WRT          R310.3
+RD              R310.3
+AND          X1.2
+OR          R310.4
+AND.NOT      R310.5
+   
+WRT          R310.4
+RD              R310.4
+AND          X1.3
+OR          R310.5
+AND.NOT      R310.6
+   
+WRT          R310.5
+RD              R310.5
+AND          X1.1
+OR          R310.6
+AND.NOT      R310.7
+   
+WRT          R310.6
+RD              R310.6
+AND          R171.4
+OR          R310.7
+AND.NOT      R312.0
+   
+WRT          R310.7
+RD              R310.7
+AND.NOT      R140.0
+OR          R312.0
+RD.NOT.STK      R311.0
+AND.NOT      R312.3
+AND.STK
+   
+WRT          R312.0
+RD              R312.0
+AND.NOT      R148.0
+OR          R312.3
+AND.NOT      R312.1
+   
+WRT          R312.3
+RD              R312.0
+RD.STK          R140.1
+AND.NOT      R150.1
+AND.STK
+OR          R311.0
+AND.NOT      R311.1
+   
+WRT          R311.0
+RD              R311.0
+AND          R171.2
+OR          R311.1
+AND.NOT      R311.2
+   
+WRT          R311.1
+RD              R311.1
+AND          X1.2
+OR          R311.2
+AND.NOT      R311.3
+   
+WRT          R311.2
+RD              R311.2
+AND          R140.2
+OR          R311.3
+AND.NOT      R311.4
+   
+WRT          R311.3
+RD              R311.3
+AND          X1.1
+OR          R311.4
+AND.NOT      R311.5
+   
+WRT          R311.4
+RD              R311.4
+AND          R171.4
+OR          R311.5
+AND.NOT      R312.4
+AND.NOT      R312.5
+   
+WRT          R311.5
+RD              R311.5
+RD.NOT.STK      R170.0
+RD.NOT.STK      R10.6
+OR          R149.0
+OR.STK
+AND.STK
+OR          R312.4
+AND.NOT      R312.1
+   
+WRT          R312.4
+RD              R311.5
+RD.STK          R170.0
+RD.STK          R10.6
+AND.NOT      R149.0
+AND.STK
+AND.STK
+OR          R312.5
+AND.NOT      R310.3
+   
+WRT          R312.5
+RD              R312.4
+OR          R312.3
+AND          R171.1
+OR          R312.1
+AND.NOT      R311.7
+   
+WRT          R312.1
+RD              R5.0
+OR.NOT      R5.0
+   
+WRT          R3.5
+*          2#机械手自动运行状态机输出
+RD              R310.2
+OR          R312.5
+   
+WRT          R170.6
+RD              R310.3
+AND          X1.4
+OR          R311.1
+   
+WRT          R172.2
+RD              R310.4
+   
+WRT          R174.0
+RD              R310.5
+OR          R311.7
+OR          R311.3
+AND.NOT      F0.0
+   
+WRT          R173.1
+RD              R310.6
+   
+WRT          R174.1
+RD              R310.6
+OR          R311.4
+   
+WRT          R170.5
+RD              R312.3
+OR          R312.4
+   
+WRT          R170.7
+RD              R311.0
+   
+WRT          R170.4
+RD              R311.0
+   
+WRT          R171.6
+RD              R311.5
+   
+WRT          R171.7
+*          2#机械手输出信号控制
+RD              R171.6
+OR          R170.1
+AND.NOT      R171.7
+   
+WRT          R170.1
+*          2# 驱动器输入信号
+RD              R170.5
+OR          R170.6
+RD.NOT.STK      R170.4
+AND.NOT      R170.7
+AND          R10.6
+AND.STK
+   
+WRT          Y2.2
+RD              R170.4
+OR          R170.5
+RD.NOT.STK      R170.6
+AND.NOT      R170.7
+AND          R10.6
+AND.STK
+   
+WRT          Y2.1
+RD              R170.4
+RD.STK          R170.5
+RD.STK          R170.6
+OR          R170.7
+OR.STK
+OR.STK
+RD.STK          R10.6
+AND.NOT      F0.0
+AND.STK
+   
+WRT          Y2.3
+RD.NOT          F0.0
+   
+WRT          Y1.2
+RD              F0.0
+   
+WRT          Y2.4
+RD              X1.6
+   
+WRT          Y2.7
+*          2#机械手通用输出
+RD              R173.0
+OR          R173.1
+   
+WRT          R172.0
+RD              R174.0
+OR          Y1.0
+AND.NOT      R174.1
+   
+WRT          Y1.0
+RD              X1.1
+AND.NOT      R172.2
+RD.NOT.STK      X1.1
+AND          R172.0
+OR.STK
+   
+WRT.NOT      Y0.6
 *          面板1#机械手进指示灯
 RD              R500.0
 AND          X12.3
@@ -669,6 +1063,17 @@ OR          R152.4
 AND          X12.4
    
 WRT          Y12.4
+*          面板2#机械手进指示灯
+RD              R502.0
+AND          X14.6
+   
+WRT          Y14.6
+*          面板2#机械手退指示灯
+RD              R503.0
+OR          R172.4
+AND          X15.2
+   
+WRT          Y15.2
 *          M指令
 RD.NOT          F11.5
 RD.NOT.STK      F11.6
