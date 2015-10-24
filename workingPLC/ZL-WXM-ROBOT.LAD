@@ -612,7 +612,6 @@ AND.NOT      R150.7
 AND          R10.6
 AND.STK
    
-WRT          Y1.3
 WRT          Y1.5
 RD              R150.4
 OR          R150.5
